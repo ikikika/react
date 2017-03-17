@@ -25,25 +25,6 @@ class Todos extends Component {
     this.input1.value = "";
   };
   render() {
-    // const todoList =
-    //   this.state.todos.length === 0 ? (
-    //     <p>No todos</p>
-    //   ) : (
-    //     this.state.todos.map(todo => {
-    //       return (
-    //         <p key={todo.id}>
-    //           {todo.content}
-    //           <input
-    //             type="button"
-    //             value="delete"
-    //             onClick={() => {
-    //               this.deleteTodo(todo.id);
-    //             }}
-    //           />
-    //         </p>
-    //       );
-    //     })
-    //   );
     return (
       <div>
         <TodoItems todoItems={this.state.todos} />
