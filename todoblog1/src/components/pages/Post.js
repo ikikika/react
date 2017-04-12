@@ -25,7 +25,6 @@ class Post extends Component {
     ) : (
       <p>loading</p>
     );
-    console.log(this.state.post);
     return <div className="container">{post}</div>;
   }
 }

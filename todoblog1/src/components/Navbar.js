@@ -34,7 +34,7 @@ class Navbar extends Component {
                 <NavLink to="/about">About</NavLink>
               </li>
               <li>
-                <NavLink to="/todo">Todo</NavLink>
+                <NavLink to="/todos">Todos</NavLink>
               </li>
             </ul>
           </div>

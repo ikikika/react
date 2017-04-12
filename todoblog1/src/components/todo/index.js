@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import TodoItem from "./TodoItem";
 
-class Todo extends Component {
+class Todos extends Component {
   state = {
     todos: [
       { id: 1, content: "asdas sdfsfs" },
@@ -26,27 +27,6 @@ class Todo extends Component {
     this.setState({ todos, newTodo: "" });
   };
   render() {
-    const todoList = this.state.todos.length ? (
-      this.state.todos.map(todo => {
-        return (
-          <tr key={todo.id}>
-            <td>{todo.content}</td>
-            <td>
-              <button
-                className="waves-effect waves-light btn"
-                onClick={() => this.deleteTodo(todo.id)}
-              >
-                <i className="material-icons left">delete</i>
-              </button>
-            </td>
-          </tr>
-        );
-      })
-    ) : (
-      <tr>
-        <td colSpan="2">No todos</td>
-      </tr>
-    );
     return (
       <div className="container">
         <table className="striped highlight responsive-table">
@@ -56,7 +36,12 @@ class Todo extends Component {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>{todoList}</tbody>
+          <tbody>
+            <TodoItem
+              todoItems={this.state.todos}
+              deleteTodoItem={this.deleteTodo}
+            />
+          </tbody>
         </table>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
@@ -81,4 +66,4 @@ class Todo extends Component {
     );
   }
 }
-export default Todo;
+export default Todos;
