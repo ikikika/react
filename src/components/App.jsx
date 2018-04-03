@@ -4,7 +4,7 @@ import TodoList from './TodoList';
 const App = ({todos,showDone})=>(
     <div>
         <h1>
-            React v16.1.1 TodoMVC
+            To do list
         </h1>
         <TodoList />
     </div>
