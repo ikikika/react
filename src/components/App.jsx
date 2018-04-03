@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './TodoList';
+import TodoInput from './TodoInput';
 
 const App = ({todos,showDone})=>(
     <div>
@@ -7,6 +8,7 @@ const App = ({todos,showDone})=>(
             To do list
         </h1>
         <TodoList />
+        <TodoInput />
     </div>
 );
 
