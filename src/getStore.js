@@ -37,7 +37,12 @@ const reducer = (state = defaultState, action) => {
         }
     }
 
-    
+    if (type === `SET_SHOW_DONE`) {
+        state = {
+            ...state,
+            showDone
+        }
+    };
   return state;
 };
 
