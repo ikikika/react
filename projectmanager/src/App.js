@@ -5,6 +5,7 @@ import Projects from './Components/Projects';
 class App extends Component {
 
   constructor(){
+    super();
     this.state = {
       projects: [
         {
@@ -27,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         My App
-        <Projects test="Hello World"/>
+        <Projects projects={this.state.projects}/>
       </div>
     );
   }
