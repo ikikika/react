@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import Projects from './Components/Projects';
+import AddProject from './Components/AddProject';
 
 class App extends Component {
 
   constructor(){
     super();
     this.state = {
-      projects: [
-
-      ]
+      projects: []
     }
   }
 
@@ -33,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        My App
+        <AddProject />
         <Projects projects={this.state.projects}/>
       </div>
     );
