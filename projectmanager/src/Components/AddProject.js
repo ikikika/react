@@ -54,6 +54,7 @@ class AddProject extends Component {
 
           <input type="submit" value="Submit"/>
         </form>
+        <br/>
       </div>
     );
   }
