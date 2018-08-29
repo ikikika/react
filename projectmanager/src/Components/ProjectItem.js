@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class ProjectItem extends Component {
   deleteProject(id){
-    //this.props.onDelete(id);
-    console.log(id);
+    this.props.onDelete(id);
+    // console.log(id);
   }
 
   render() {
