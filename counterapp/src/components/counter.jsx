@@ -12,8 +12,8 @@ class Counter extends Component {
     fontWeight: 'bold'
   }
 
-  handleIncrement(){
-    console.log('increment clicked');
+  handleIncrement = () => {
+    console.log('increment clicked', this);
   }
 
   render() {
