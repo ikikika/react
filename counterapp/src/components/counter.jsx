@@ -13,7 +13,7 @@ class Counter extends Component {
   }
 
   handleIncrement = () => {
-    console.log('increment clicked', this);
+    this.setState({ count: this.state.count+1}); //tells react that r updating the state, react figure out what part of state is changed, bring DOM in sync with virtual DOM
   }
 
   render() {
