@@ -12,7 +12,8 @@ class Counter extends Component {
     fontWeight: 'bold'
   }
 
-  handleIncrement = () => {
+  handleIncrement = (argument) => {
+    console.log(argument);
     this.setState({ count: this.state.count+1}); //tells react that r updating the state, react figure out what part of state is changed, bring DOM in sync with virtual DOM
   }
 
@@ -22,7 +23,7 @@ class Counter extends Component {
       <div>
         <span style={ this.styles } className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={ () => this.handleIncrement({argument:1}) }
           className="btn btn-secondary btn-lg"
           >Increment</button>
         <ul>
