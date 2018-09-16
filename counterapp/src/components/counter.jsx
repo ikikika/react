@@ -22,15 +22,15 @@ class Counter extends Component {
 
     return (
       <div>
-        <h4>{this.props.id}</h4>
+        <h4>Counter #{this.props.id}</h4>
         <span style={ this.styles } className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={ () => this.handleIncrement({argument:1}) }
           className="btn btn-secondary btn-lg"
           >Increment</button>
-        <ul>
-          { this.state.tags.map( tag => <li key={tag}>{tag}</li> )}
-        </ul>
+        <button
+          onClick={ this.props.onDelete }
+        className="btn btn-danger btn-lg m-2">Delete</button>
       </div>
     );
   }
