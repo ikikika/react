@@ -12,10 +12,10 @@ class Counter extends Component {
     fontWeight: 'bold'
   }
 
-  handleIncrement = (argument) => {
-    //console.log(argument);
-    this.setState({ value: this.state.value+1}); //tells react that r updating the state, react figure out what part of state is changed, bring DOM in sync with virtual DOM
-  }
+  // handleIncrement = (argument) => {
+  //   //console.log(argument);
+  //   this.setState({ value: this.state.value+1}); //tells react that r updating the state, react figure out what part of state is changed, bring DOM in sync with virtual DOM
+  // }
 
   render() {
     //console.log('props', this.props); //every react has a property called props
@@ -25,7 +25,7 @@ class Counter extends Component {
         <h4>Counter #{this.props.counter.id}</h4>
         <span style={ this.styles } className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={ () => this.handleIncrement({argument:1}) }
+          onClick={ () => this.props.onIncrement(this.props.counter) }
           className="btn btn-secondary btn-lg"
           >Increment</button>
         <button
@@ -36,13 +36,13 @@ class Counter extends Component {
   }
 
   formatCount(){
-    const {value} = this.state;
+    const {value} = this.props.counter;
     return value === 0 ? "Zero" : value;
   }
 
   getBadgeClasses(){
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
