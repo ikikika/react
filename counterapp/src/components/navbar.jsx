@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
 
-class NavBar extends Component {
-  render() {
-    return(
-      <nav className="navbar navbar-light bg-light">
-        <a href="" className="navbar-brand">
-          Navbar <span className="badge badge-pill badge-secondary">{this.props.totalCounters}</span>
-        </a>
-      </nav>
-    );
-  }
+//stateless functional component
+// no state, no data
+
+//react will pass props as argument to this function at runtime
+const NavBar = (props) => {
+  return(
+    <nav className="navbar navbar-light bg-light">
+      <a href="" className="navbar-brand">
+        Navbar <span className="badge badge-pill badge-secondary">{props.totalCounters}</span>
+      </a>
+    </nav>
+  );
 }
+
+// class NavBar extends Component {
+//   render() {
+//
+//   }
+// }
 
 export default NavBar;
