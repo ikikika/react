@@ -4,11 +4,16 @@ import React, {Component} from 'react';
 // no state, no data
 
 //react will pass props as argument to this function at runtime
-const NavBar = (props) => {
+
+//property we are interested in
+const NavBar = ({totalCounters}) => {
   return(
     <nav className="navbar navbar-light bg-light">
       <a href="" className="navbar-brand">
-        Navbar <span className="badge badge-pill badge-secondary">{props.totalCounters}</span>
+        Navbar
+        <span className="badge badge-pill badge-secondary">
+          {totalCounters}
+        </span>
       </a>
     </nav>
   );
