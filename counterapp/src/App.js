@@ -24,7 +24,7 @@ class App extends Component {
   componentDidMount(){
     //ajax call
     //this.setState({movies});
-    console.log("mounted");
+    console.log("app mounted");
   }
 
   handleIncrement = counter => {
@@ -52,7 +52,9 @@ class App extends Component {
     this.setState({ counters: counters});
   }
 
+  //returns a react element that represent virtual DOM
   render() {
+    console.log("app rendered");
     return (
       <React.Fragment>
         <NavBar

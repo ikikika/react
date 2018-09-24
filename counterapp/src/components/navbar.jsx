@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 
 //property we are interested in
 const NavBar = ({totalCounters}) => {
+  console.log("navbar rendered");
   return(
     <nav className="navbar navbar-light bg-light">
       <a href="" className="navbar-brand">

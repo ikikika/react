@@ -19,7 +19,7 @@ class Counter extends Component {
 
   render() {
     //console.log('props', this.props); //every react has a property called props
-
+    console.log("counter rendered");
     return (
       <div>
         <h4>Counter #{this.props.counter.id}</h4>
