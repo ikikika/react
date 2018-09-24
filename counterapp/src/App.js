@@ -14,6 +14,12 @@ class App extends Component {
     ]
   }
 
+  // called only once when component is created. can be used for initialising properties in instant.
+  constructor(props){
+    super(props);
+    console.log("app constructor", this.props);
+  }
+
   handleIncrement = counter => {
     // console.log(counter);
     const counters = [...this.state.counters]; //clone state.counters
