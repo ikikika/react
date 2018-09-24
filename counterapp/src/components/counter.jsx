@@ -17,6 +17,17 @@ class Counter extends Component {
   //   this.setState({ value: this.state.value+1}); //tells react that r updating the state, react figure out what part of state is changed, bring DOM in sync with virtual DOM
   // }
 
+  //mtd id called after component is updated, we have new state or new props, can companre new with old, if there is change, we cna make ajaz request to get new data from server
+  componentDidUpdate( prevProps, prevState){
+    console.log(prevProps);
+    console.log(prevState);
+
+    if( prevProps.counter.value !== this.props.counter.value ){
+      console.log("new diff from old");
+      //ajax call to get new data from server
+    }
+  }
+
   render() {
     //console.log('props', this.props); //every react has a property called props
     console.log("counter rendered");
