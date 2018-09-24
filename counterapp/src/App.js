@@ -15,9 +15,16 @@ class App extends Component {
   }
 
   // called only once when component is created. can be used for initialising properties in instant.
-  constructor(props){
-    super(props);
-    console.log("app constructor", this.props);
+  constructor(){
+    super();
+    console.log("app constructor");
+  }
+
+  // called after component is rendered into DOM, perfect place to make ajax calls to get data from server
+  componentDidMount(){
+    //ajax call
+    //this.setState({movies});
+    console.log("mounted");
   }
 
   handleIncrement = counter => {
