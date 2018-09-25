@@ -28,6 +28,12 @@ class Counter extends Component {
     }
   }
 
+  //called just before component is removed from DOM, react compare virtual DOM with old, figure out if component is removed, call this lifecycle before removing component from dom
+  //opportunity to do cleanup of timers/listeners
+  componentWillUnmount(){
+    console.log("counter unmount");
+  }
+
   render() {
     //console.log('props', this.props); //every react has a property called props
     console.log("counter rendered");
