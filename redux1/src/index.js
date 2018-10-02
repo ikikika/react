@@ -9,7 +9,12 @@ import { createStore } from 'redux';
 //reducers listen to every single action that is sent
 //we need to be able to figure out what to do differently for each action
 function reducer(state, action){ 
-    console.log(action); //make sure that the action sent to the dispatcher is reaching the reducer
+    
+    //to act upon the action we just sent/dispatch
+    if( action.type === 'changeState' ){
+        return action.payload.newState;
+    }
+
     return 'State';
 }
 const store = createStore(reducer);
@@ -23,6 +28,7 @@ const action = {
     }
 }
 store.dispatch(action);
+console.log(store.getState);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
