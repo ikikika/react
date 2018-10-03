@@ -4,31 +4,23 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { createStore } from 'redux';
+//we need 2 reducers and we can use combineReducers to combine them
+import { combineReducers, createStore } from 'redux';
 //reducers takes 2 parameters, state and action
 //reducers listen to every single action that is sent
 //we need to be able to figure out what to do differently for each action
-function reducer(state, action){ 
-    
-    //to act upon the action we just sent/dispatch
-    if( action.type === 'changeState' ){
-        return action.payload.newState;
-    }
-
-    return 'State';
+function productsReducer(state = [], action){ 
+    return state;
 }
-const store = createStore(reducer);
+function userReducer(state = '', action){
+    return state;
+}
+const allReducers = combineReducers({
+    products: productsReducer,
+    user: userReducer
+});
+const store = createStore(allReducers);
 console.log(store.getState());
-
-//create a dispatcher
-const action = {
-    type: 'changeState',
-    payload: {
-        newState: 'New State'
-    }
-}
-store.dispatch(action);
-console.log(store.getState);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
