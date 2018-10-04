@@ -12,9 +12,9 @@ import { combineReducers, createStore } from 'redux';
 function productsReducer(state = [], action){ 
     return state;
 }
-function userReducer(state = '', action){
-    switch(action.type){
-        case 'updateUser': return action.payload.user;
+function userReducer(state = '', {type, payload}){
+    switch(type){
+        case 'updateUser': return payload.user;
     }
     return state;
 }
