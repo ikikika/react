@@ -6,6 +6,8 @@ import * as serviceWorker from './serviceWorker';
 
 //we need 2 reducers and we can use combineReducers to combine them
 import { combineReducers, createStore } from 'redux';
+
+import { Provider } from 'react-redux';
 //reducers takes 2 parameters, state and action
 //reducers listen to every single action that is sent
 //we need to be able to figure out what to do differently for each action
@@ -40,7 +42,12 @@ const updateUserAction = {
 }
 store.dispatch(updateUserAction);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, 
+    document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
