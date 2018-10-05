@@ -8,18 +8,10 @@ import * as serviceWorker from './serviceWorker';
 import { combineReducers, createStore } from 'redux';
 
 import { Provider } from 'react-redux';
-//reducers takes 2 parameters, state and action
-//reducers listen to every single action that is sent
-//we need to be able to figure out what to do differently for each action
-function productsReducer(state = [], action){ 
-    return state;
-}
-function userReducer(state = '', {type, payload}){
-    switch(type){
-        case 'updateUser': return payload.user;
-    }
-    return state;
-}
+
+import productsReducer from './reducers/products-reducer';
+import userReducer from './reducers/user-reducer';
+
 const allReducers = combineReducers({
     products: productsReducer,
     user: userReducer
