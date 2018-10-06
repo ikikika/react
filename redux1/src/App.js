@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
+
+    console.log(this.props);
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -27,4 +30,10 @@ class App extends Component {
   }
 }
 
-export default connect() (App);
+//connect takes 3 arguments
+
+//1st mapStateToProps: receives state of store, then use that state to decide what props we want to provide for that component
+const mapStateToProps = state => {
+  return state;
+}
+export default connect(mapStateToProps) (App);
