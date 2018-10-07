@@ -17,6 +17,9 @@ class App extends Component {
     this.props.onUpdateUser(event.target.value);
   }
   render() {
+    
+    console.log(this.props);
+
     return (
       <div className="App">
         <header className="App-header">
@@ -43,10 +46,15 @@ class App extends Component {
 //connect takes 3 arguments
 
 //1st mapStateToProps: receives state of store, then use that state to decide what props we want to provide for that component
-const mapStateToProps = state => ({
-  products: state.products,
-  user: state.user
-})
+const mapStateToProps = (state, props) => {
+  
+  //using passed props to customise the props we're giving the component
+  return {
+    products: state.products,
+    user: state.user,
+    userPlusProp: `${state.user} ${props.aRandomProps}`
+  }
+};
 
 //2nd mapActionsToProps: allows us to dispatch actions from our components easily so we dont need to mess with using dispatch in the components themselves
 const mapActionsToProps = {

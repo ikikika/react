@@ -36,7 +36,7 @@ store.dispatch(updateUserAction);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App aRandomProp="whatever"/>
     </Provider>, 
     document.getElementById('root')
 );
