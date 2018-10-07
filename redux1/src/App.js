@@ -4,11 +4,19 @@ import './App.css';
 
 import { connect } from 'react-redux';
 
-class App extends Component {
-  render() {
+import { updateUser } from './actions/user-actions';
 
-    console.log(this.props);
-    
+class App extends Component {
+  //because we need to access 'this' for onUpdateUser, we need to bind it
+  constructor(props){
+    super(props);
+    this.onUpdateUser = this.onUpdateUser.bind(this);
+  }
+  //because we use onUpdateUser method on onClick, we need to define it
+  onUpdateUser(){
+    this.props.onUpdateUser('Sammy');
+  }
+  render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -25,6 +33,8 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <div onClick={this.onUpdateUser}>Update User</div>
+        {this.props.user}
       </div>
     );
   }
@@ -33,7 +43,13 @@ class App extends Component {
 //connect takes 3 arguments
 
 //1st mapStateToProps: receives state of store, then use that state to decide what props we want to provide for that component
-const mapStateToProps = state => {
-  return state;
-}
-export default connect(mapStateToProps) (App);
+const mapStateToProps = state => ({
+  products: state.products,
+  user: state.user
+})
+
+//2nd mapActionsToProps: allows us to dispatch actions from our components easily so we dont need to mess with using dispatch in the components themselves
+const mapActionsToProps = {
+  onUpdateUser: updateUser
+};
+export default connect(mapStateToProps, mapActionsToProps) (App);
