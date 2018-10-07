@@ -13,8 +13,8 @@ class App extends Component {
     this.onUpdateUser = this.onUpdateUser.bind(this);
   }
   //because we use onUpdateUser method on onClick, we need to define it
-  onUpdateUser(){
-    this.props.onUpdateUser('Sammy');
+  onUpdateUser(event){
+    this.props.onUpdateUser(event.target.value);
   }
   render() {
     return (
@@ -33,7 +33,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <div onClick={this.onUpdateUser}>Update User</div>
+        <input onChange={this.onUpdateUser} />
         {this.props.user}
       </div>
     );
