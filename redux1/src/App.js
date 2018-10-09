@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import { bindActionCreators } from 'redux';
+
 import { connect } from 'react-redux';
 
 import { updateUser } from './actions/user-actions';
@@ -18,8 +20,6 @@ class App extends Component {
   }
   render() {
     
-    console.log(this.props);
-
     return (
       <div className="App">
         <header className="App-header">
@@ -57,7 +57,12 @@ const mapStateToProps = (state, props) => {
 };
 
 //2nd mapActionsToProps: allows us to dispatch actions from our components easily so we dont need to mess with using dispatch in the components themselves
-const mapActionsToProps = {
-  onUpdateUser: updateUser
+// need to bind dispatch to actions
+const mapActionsToProps = (dispatch, props) => {
+  console.log(props);
+
+  return bindActionCreators({
+    onUpdateUser: updateUser
+  }, dispatch);
 };
 export default connect(mapStateToProps, mapActionsToProps) (App);
