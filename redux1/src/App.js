@@ -52,7 +52,7 @@ const mapStateToProps = (state, props) => {
   return {
     products: state.products,
     user: state.user,
-    userPlusProp: `${state.user} ${props.aRandomProps}`
+    userPlusProp: `${state.user} ${props.aRandomProp}`
   }
 };
 
@@ -65,4 +65,14 @@ const mapActionsToProps = (dispatch, props) => {
     onUpdateUser: updateUser
   }, dispatch);
 };
-export default connect(mapStateToProps, mapActionsToProps) (App);
+
+//3rd mergeProps
+//propsFromState : whatever we return from mapStatetoProps
+//mapActionsToProps: what we return from mapActionsToProps
+//ownProps : passed in props
+const mergeProps = ( propsFromState, propsFromDispatch, ownProps) => {
+  console.log(propsFromState, propsFromDispatch, ownProps);
+  return {};
+} 
+
+export default connect(mapStateToProps, mapActionsToProps, mergeProps) (App);
