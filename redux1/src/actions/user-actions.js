@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 // UPDATE_USER scopes our action type to acoid collision with actions and other components
 export const UPDATE_USER = 'users:updateUser';
+export const SHOW_ERROR = 'users:showError';
 
 export function updateUser(newUser){
     return {
@@ -12,15 +13,25 @@ export function updateUser(newUser){
     }
 }
 
+export function showError() {
+    return {
+        type: SHOW_ERROR,
+        payload: {
+            user: 'User Error'
+        }
+    }
+}
+
 export function apiRequest() {
     return dispatch => {
         $.ajax({
-            url: 'https://jsonplaceholder.typicode.com/todos/1',
+            url: 'https://google.com',
             success(data) {
                 console.log(data);
             },
             error() {
                 console.log("error");
+                dispatch(showError());
             }
         });
     }
