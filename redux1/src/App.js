@@ -16,7 +16,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.onApiRequest();
+    setTimeout( () => {
+      this.props.onApiRequest();
+    }, 1500);
+    
   }
 
   //because we use onUpdateUser method on onClick, we need to define it
