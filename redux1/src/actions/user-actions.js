@@ -25,9 +25,10 @@ export function showError() {
 export function apiRequest() {
     return dispatch => {
         $.ajax({
-            url: 'https://google.com',
-            success(data) {
-                console.log(data);
+            url: 'https://jsonplaceholder.typicode.com/todos/1',
+            success(response) {
+                console.log(response);
+                dispatch(updateUser(response.title));
             },
             error() {
                 console.log("error");
