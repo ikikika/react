@@ -1,21 +1,31 @@
 import $ from 'jquery';
 
 // UPDATE_USER scopes our action type to acoid collision with actions and other components
-export const UPDATE_USER = 'users:updateUser';
-export const SHOW_ERROR = 'users:showError';
+export const API_REQUEST_SUCCESS = 'users:updateUser';
+export const API_REQUEST_ERROR = 'users:showError';
+export const API_REQUEST_MADE = 'users:onRequest';
 
 export function updateUser(newUser){
     return {
-        type: UPDATE_USER,
+        type: API_REQUEST_SUCCESS,
         payload: {
             user: newUser
         }
     }
 }
 
+export function onRequest() {
+    return {
+        type: API_REQUEST_MADE,
+        payload: {
+            user: 'Request made'
+        }
+    }
+}
+
 export function showError() {
     return {
-        type: SHOW_ERROR,
+        type: API_REQUEST_ERROR,
         payload: {
             user: 'User Error'
         }
@@ -24,6 +34,9 @@ export function showError() {
 
 export function apiRequest() {
     return dispatch => {
+
+        dispatch(onRequest());
+
         $.ajax({
             url: 'https://jsonplaceholder.typicode.com/todos/1',
             success(response) {
