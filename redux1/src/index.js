@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 //we need 2 reducers and we can use combineReducers to combine them
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, compose, combineReducers, createStore } from 'redux';
 
 import { Provider } from 'react-redux';
 
@@ -16,13 +16,18 @@ const allReducers = combineReducers({
     products: productsReducer,
     user: userReducer
 });
+
+const allStoreEnhancers = compose(
+    window.devToolsExtension && window.devToolsExtension()
+);
+
 const store = createStore(
     allReducers, 
     {
         products: [{name: 'iPhone'}],
         user: 'Micheal'
     },
-    window.devToolsExtension && window.devToolsExtension()
+    allStoreEnhancers
 );
 console.log(store.getState());
 
