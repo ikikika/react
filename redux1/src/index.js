@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import thunk from 'redux-thunk';
 //we need 2 reducers and we can use combineReducers to combine them
 import { applyMiddleware, compose, combineReducers, createStore } from 'redux';
 
@@ -18,6 +19,7 @@ const allReducers = combineReducers({
 });
 
 const allStoreEnhancers = compose(
+    applyMiddleware(thunk),
     window.devToolsExtension && window.devToolsExtension()
 );
 

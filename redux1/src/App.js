@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import { connect } from 'react-redux';
 
-import { updateUser } from './actions/user-actions';
+import { updateUser, apiRequest } from './actions/user-actions';
 
 class App extends Component {
   //because we need to access 'this' for onUpdateUser, we need to bind it
@@ -14,6 +14,11 @@ class App extends Component {
     super(props);
     this.onUpdateUser = this.onUpdateUser.bind(this);
   }
+
+  componentDidMount() {
+    this.props.onApiRequest();
+  }
+
   //because we use onUpdateUser method on onClick, we need to define it
   onUpdateUser(event){
     this.props.onUpdateUser(event.target.value);
@@ -58,21 +63,18 @@ const mapStateToProps = (state, props) => {
 
 //2nd mapActionsToProps: allows us to dispatch actions from our components easily so we dont need to mess with using dispatch in the components themselves
 // need to bind dispatch to actions
-const mapActionsToProps = (dispatch, props) => {
-  console.log(props);
-
-  return bindActionCreators({
-    onUpdateUser: updateUser
-  }, dispatch);
+const mapActionsToProps = {
+    onUpdateUser: updateUser,
+    onApiRequest: apiRequest
 };
 
 //3rd mergeProps
 //propsFromState : whatever we return from mapStatetoProps
 //mapActionsToProps: what we return from mapActionsToProps
 //ownProps : passed in props
-const mergeProps = ( propsFromState, propsFromDispatch, ownProps) => {
-  console.log(propsFromState, propsFromDispatch, ownProps);
-  return {};
-} 
+// const mergeProps = ( propsFromState, propsFromDispatch, ownProps) => {
+//   console.log(propsFromState, propsFromDispatch, ownProps);
+//   return {};
+// } 
 
-export default connect(mapStateToProps, mapActionsToProps, mergeProps) (App);
+export default connect(mapStateToProps, mapActionsToProps) (App);
