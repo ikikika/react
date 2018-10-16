@@ -64,14 +64,25 @@ class App extends Component {
 //     userPlusProp: `${state.user} ${props.aRandomProp}`
 //   }
 // };
-const mapStateToProps = createSelector(
+const productsSelector = createSelector(
   state => state.products,
+  products => products
+);
+const userSelector = createSelector(
   state => state.user,
+  user => user
+);
+
+const mapStateToProps = createSelector(
+  productsSelector,
+  userSelector,
   (products, user) => ({
     products, 
     user
   })
 );
+
+
 
 //2nd mapActionsToProps: allows us to dispatch actions from our components easily so we dont need to mess with using dispatch in the components themselves
 // need to bind dispatch to actions
