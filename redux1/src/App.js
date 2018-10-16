@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 
 import { connect } from 'react-redux';
 
