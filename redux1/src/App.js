@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 
 import { updateUser, apiRequest } from './actions/user-actions';
 
+import { createSelector } from 'reselect';
+
 class App extends Component {
   //because we need to access 'this' for onUpdateUser, we need to bind it
   constructor(props){
@@ -54,15 +56,22 @@ class App extends Component {
 //connect takes 3 arguments
 
 //1st mapStateToProps: receives state of store, then use that state to decide what props we want to provide for that component
-const mapStateToProps = (state, props) => {
-  
-  //using passed props to customise the props we're giving the component
-  return {
-    products: state.products,
-    user: state.user,
-    userPlusProp: `${state.user} ${props.aRandomProp}`
-  }
-};
+// const mapStateToProps = (state, props) => {
+//   //using passed props to customise the props we're giving the component
+//   return {
+//     products: state.products,
+//     user: state.user,
+//     userPlusProp: `${state.user} ${props.aRandomProp}`
+//   }
+// };
+const mapStateToProps = createSelector(
+  state => state.products,
+  state => state.user,
+  (products, user) => ({
+    products, 
+    user
+  })
+);
 
 //2nd mapActionsToProps: allows us to dispatch actions from our components easily so we dont need to mess with using dispatch in the components themselves
 // need to bind dispatch to actions
