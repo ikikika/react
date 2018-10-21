@@ -7,11 +7,23 @@ import Exercises from "./Components/Exercises";
 import { muscles, exercises } from "./Components/store";
 
 class App extends Component {
-  states = {
+  state = {
     exercises
   };
 
+  getExercisesyMuscles() {
+    return this.state.exercises.reduce((exercises, exercise) => {
+      const { muscles } = exercise;
+      exercises[muscles] = exercises[muscles]
+        ? [...exercises[muscles], exercise]
+        : [exercise];
+
+      return exercises;
+    }, {});
+  }
+
   render() {
+    console.log(this.getExercisesyMuscles());
     return (
       <Fragment>
         <Header />
