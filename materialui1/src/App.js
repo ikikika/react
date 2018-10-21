@@ -4,13 +4,19 @@ import Header from "./Components/Layouts/Header";
 import Footer from "./Components/Layouts/Footer";
 import Exercises from "./Components/Exercises";
 
+import { muscles, exercises } from "./Components/store";
+
 class App extends Component {
+  states = {
+    exercises
+  };
+
   render() {
     return (
       <Fragment>
         <Header />
         <Exercises />
-        <Footer />
+        <Footer muscles={muscles} />
       </Fragment>
     );
   }
