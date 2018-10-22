@@ -11,23 +11,25 @@ class App extends Component {
     exercises
   };
 
-  getExercisesyMuscles() {
-    return this.state.exercises.reduce((exercises, exercise) => {
-      const { muscles } = exercise;
-      exercises[muscles] = exercises[muscles]
-        ? [...exercises[muscles], exercise]
-        : [exercise];
+  getExercisesbyMuscles() {
+    return Object.entries(
+      this.state.exercises.reduce((exercises, exercise) => {
+        const { muscles } = exercise;
+        exercises[muscles] = exercises[muscles]
+          ? [...exercises[muscles], exercise]
+          : [exercise];
 
-      return exercises;
-    }, {});
+        return exercises;
+      }, {})
+    );
   }
 
   render() {
-    console.log(this.getExercisesyMuscles());
+    const exercises = this.getExercisesbyMuscles();
     return (
       <Fragment>
         <Header />
-        <Exercises />
+        <Exercises exercises={exercises} />
         <Footer muscles={muscles} />
       </Fragment>
     );
