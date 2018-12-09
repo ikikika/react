@@ -6,6 +6,13 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js"
   },
-  module: {},
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: "awesome-typescript-loader"
+      }
+    ]
+  },
   plugins: []
 };
