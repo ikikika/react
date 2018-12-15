@@ -1,11 +1,15 @@
 import * as React from "react";
 
-export class App extends React.Component<IProps, {}> {
+export class App extends React.Component<{}, {}> {
   render() {
-    return <h1>Hihi {this.props.name}</h1>;
+    return (
+      <div>
+        <h1>TS List</h1>
+        <form>
+          <input type="text" placeholder="Task Name" />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    );
   }
-}
-
-interface IProps {
-  name: string;
 }
