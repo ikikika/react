@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export class App extends React.Component<{}, {}> {
+export class App extends React.Component<{}, IState> {
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -11,17 +11,35 @@ export class App extends React.Component<{}, {}> {
 
   handleSubmit(e: any) {
     e.preventDefault();
+    this.setState({
+      currentTask: "",
+      tasks: [
+        ...this.state.tasks, // spread operator, means take everything from tasks array and put it here
+        this.state.currentTask
+      ]
+    });
   }
 
   render() {
+    console.log(this.state); //for debugging so we can see our state
     return (
       <div>
         <h1>TS List</h1>
         <form onSubmit={e => this.handleSubmit(e)}>
-          <input type="text" placeholder="Task Name" />
+          <input
+            type="text"
+            placeholder="Task Name"
+            value={this.state.currentTask}
+            onChange={e => this.setState({ currentTask: e.target.value })}
+          />
           <button type="submit">Add</button>
         </form>
       </div>
     );
   }
+}
+
+interface IState {
+  currentTask: string;
+  tasks: Array<string>;
 }
