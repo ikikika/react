@@ -9,7 +9,8 @@ export class App extends React.Component<{}, IState> {
     };
   }
 
-  handleSubmit(e: any) {
+  public handleSubmit(e: any): void {
+    // return nothing
     e.preventDefault();
     this.setState({
       currentTask: "",
@@ -20,13 +21,14 @@ export class App extends React.Component<{}, IState> {
     });
   }
 
-  renderTasks() {
+  public renderTasks(): JSX.Element[] {
+    // return JSX array
     return this.state.tasks.map((task: string, index: number) => {
       return <div key={index}>{task}</div>;
     });
   }
 
-  render() {
+  public render(): JSX.Element {
     console.log(this.state); //for debugging so we can see our state
     return (
       <div>
