@@ -33,6 +33,13 @@ export class App extends React.Component<{}, IState> {
     this.setState({ tasks: filteredTasks });
   }
 
+  public toggleDone(index: number): void {
+    let task: ITask[] = this.state.tasks.splice(index, 1); // take out the task that was clicked
+    task[0].completed = !task[0].completed; // change boolean value of task that was singled out
+    const currentTask: ITask[] = [...this.state.tasks, ...task]; // put back updated task
+    this.setState({ tasks: currentTask }); // set to state
+  }
+
   public renderTasks(): JSX.Element[] {
     // return JSX array
     return this.state.tasks.map((task: ITask, index: number) => {
@@ -40,6 +47,7 @@ export class App extends React.Component<{}, IState> {
         <div key={task.id}>
           <span>{task.value}</span>
           <button onClick={() => this.deleteTask(task.id)}>Del</button>
+          <button onClick={() => this.toggleDone(index)}>Done</button>
         </div>
       );
     });
