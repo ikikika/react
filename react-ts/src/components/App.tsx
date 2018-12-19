@@ -25,10 +25,23 @@ export class App extends React.Component<{}, IState> {
     });
   }
 
+  public deleteTask(id: number): void {
+    const filteredTasks: Array<ITask> = this.state.tasks.filter(
+      // filter creates a new array with all the tasks assigned to it by the function
+      (task: ITask) => task.id !== id // removes the id passed in
+    );
+    this.setState({ tasks: filteredTasks });
+  }
+
   public renderTasks(): JSX.Element[] {
     // return JSX array
     return this.state.tasks.map((task: ITask, index: number) => {
-      return <div key={task.id}>{task.value}</div>;
+      return (
+        <div key={task.id}>
+          <span>{task.value}</span>
+          <button onClick={() => this.deleteTask(task.id)}>Del</button>
+        </div>
+      );
     });
   }
 
