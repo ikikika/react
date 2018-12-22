@@ -44,8 +44,10 @@ export class App extends React.Component<{}, IState> {
     // return JSX array
     return this.state.tasks.map((task: ITask, index: number) => {
       return (
-        <div key={task.id}>
-          <span>{task.value}</span>
+        <div key={task.id} className="tdl-task">
+          <span className={task.completed ? "is-completed" : ""}>
+            {task.value}
+          </span>
           <button onClick={() => this.deleteTask(task.id)}>Del</button>
           <button onClick={() => this.toggleDone(index)}>
             {task.completed ? "Undo" : "Done"}
@@ -63,6 +65,7 @@ export class App extends React.Component<{}, IState> {
         <form onSubmit={e => this.handleSubmit(e)}>
           <input
             type="text"
+            className="tdl-input"
             placeholder="Task Name"
             value={this.state.currentTask}
             onChange={e => this.setState({ currentTask: e.target.value })}
