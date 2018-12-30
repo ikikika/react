@@ -3,4 +3,4 @@ import * as ReactDOM from "react-dom";
 
 const ROOT = document.querySelector(".container");
 
-ReactDOM.render(<h1>Hello</h1>, ROOT);
+ReactDOM.render(<h1>Hello 1234</h1>, ROOT);
