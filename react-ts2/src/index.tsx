@@ -1,6 +1,8 @@
 import * as React from "react"; //need to "import *" for typescript
 import * as ReactDOM from "react-dom";
 
+import { App } from "./components/App"; // app is not default export
+
 const ROOT = document.querySelector(".container");
 
-ReactDOM.render(<h1>Hello 12345677</h1>, ROOT);
+ReactDOM.render(<App name="abcabc" />, ROOT);
