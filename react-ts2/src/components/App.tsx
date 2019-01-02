@@ -1,12 +1,16 @@
 import * as React from "react";
 
-export class App extends React.Component<IProps, {}> {
+export class App extends React.Component<{}, {}> {
   //in <>, first is props, second is state
   render() {
-    return <h1>Helllllllloooo {this.props.name}</h1>;
+    return (
+      <div>
+        <h1>React Typescript</h1>
+        <form action="">
+          <input type="text" placeholder="Enter task here" />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+    );
   }
-}
-
-interface IProps {
-  name: string;
 }

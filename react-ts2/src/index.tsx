@@ -7,4 +7,4 @@ import "./styles/style.scss";
 
 const ROOT = document.querySelector(".container");
 
-ReactDOM.render(<App name="abcabc" />, ROOT);
+ReactDOM.render(<App />, ROOT);
