@@ -3,6 +3,14 @@ import * as React from "react";
 export class App extends React.Component<{}, {}> {
   //in <>, first is props, second is state
 
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      currentTask: "",
+      tasks: []
+    };
+  }
+
   handleSubmit(e: any) {
     e.preventDefault();
   }
