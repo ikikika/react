@@ -13,7 +13,9 @@ export class App extends React.Component<{}, IState> {
 
   handleSubmit(e: any) {
     e.preventDefault();
+
     this.setState({
+      //this code resets the state
       currentTask: "",
       tasks: [...this.state.tasks, this.state.currentTask]
     });
@@ -27,6 +29,7 @@ export class App extends React.Component<{}, IState> {
           <input
             type="text"
             placeholder="Enter task here"
+            value={this.state.currentTask}
             onChange={e => this.setState({ currentTask: e.target.value })}
           />
           <button type="submit">Add</button>
