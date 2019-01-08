@@ -17,15 +17,28 @@ export class App extends React.Component<{}, IState> {
     this.setState({
       //this code resets the state
       currentTask: "",
-      tasks: [...this.state.tasks, this.state.currentTask]
+      tasks: [
+        ...this.state.tasks,
+        {
+          id: this._timeInMilliseconds(),
+          value: this.state.currentTask,
+          completed: false
+        }
+      ]
     });
   }
 
+  _timeInMilliseconds() {
+    const date: Date = new Date();
+    return date.getTime();
+  }
+
   renderTasks() {
-    return this.state.tasks.map((task: string, index: number) => {
-      return <div key={index}>{task}</div>;
+    return this.state.tasks.map((task: ITask, index: number) => {
+      return <div key={index}>{task.value}</div>;
     });
   }
+
   render() {
     console.log(this.state);
     return (
@@ -48,5 +61,11 @@ export class App extends React.Component<{}, IState> {
 
 interface IState {
   currentTask: string;
-  tasks: Array<string>;
+  tasks: Array<ITask>;
+}
+
+interface ITask {
+  id: number;
+  value: string;
+  completed: boolean;
 }
