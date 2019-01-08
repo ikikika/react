@@ -20,6 +20,12 @@ export class App extends React.Component<{}, IState> {
       tasks: [...this.state.tasks, this.state.currentTask]
     });
   }
+
+  renderTasks() {
+    return this.state.tasks.map((task: string, index: number) => {
+      return <div key={index}>{task}</div>;
+    });
+  }
   render() {
     console.log(this.state);
     return (
@@ -34,6 +40,7 @@ export class App extends React.Component<{}, IState> {
           />
           <button type="submit">Add</button>
         </form>
+        <section>{this.renderTasks()}</section>
       </div>
     );
   }
