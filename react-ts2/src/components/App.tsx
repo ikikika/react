@@ -28,6 +28,15 @@ export class App extends React.Component<{}, IState> {
     });
   }
 
+  deleteTask(id: number) {
+    const filteredTasks: Array<ITask> = this.state.tasks.filter(
+      (task: ITask) => task.id !== id
+    );
+    this.setState({
+      tasks: filteredTasks
+    });
+  }
+
   _timeInMilliseconds() {
     const date: Date = new Date();
     return date.getTime();
@@ -35,7 +44,12 @@ export class App extends React.Component<{}, IState> {
 
   renderTasks() {
     return this.state.tasks.map((task: ITask, index: number) => {
-      return <div key={index}>{task.value}</div>;
+      return (
+        <div key={index}>
+          <span>{task.value}</span>
+          <button onClick={() => this.deleteTask(task.id)}>Delete</button>
+        </div>
+      );
     });
   }
 
