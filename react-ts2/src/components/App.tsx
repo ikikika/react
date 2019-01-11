@@ -37,6 +37,15 @@ export class App extends React.Component<{}, IState> {
     });
   }
 
+  toggleDone(id: number) {
+    let task = this.state.tasks.splice(id, 1);
+    task[0].completed = !task[0].completed;
+    const currentTasks = [...this.state.tasks, ...task];
+    this.setState({
+      tasks: currentTasks
+    });
+  }
+
   _timeInMilliseconds() {
     const date: Date = new Date();
     return date.getTime();
@@ -47,6 +56,7 @@ export class App extends React.Component<{}, IState> {
       return (
         <div key={index}>
           <span>{task.value}</span>
+          <button onClick={() => this.toggleDone(index)}>Done</button>
           <button onClick={() => this.deleteTask(task.id)}>Delete</button>
         </div>
       );
