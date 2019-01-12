@@ -56,7 +56,9 @@ export class App extends React.Component<{}, IState> {
       return (
         <div key={index}>
           <span>{task.value}</span>
-          <button onClick={() => this.toggleDone(index)}>Done</button>
+          <button onClick={() => this.toggleDone(index)}>
+            {task.completed ? "Undo" : "Done"}
+          </button>
           <button onClick={() => this.deleteTask(task.id)}>Delete</button>
         </div>
       );
