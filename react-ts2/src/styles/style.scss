@@ -1,8 +1,14 @@
 $background-grey: #f3f3f3;
 
+$button-grey: #5e5e5e;
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.3rem;
   background-color: $background-grey;
+}
+
+.is-completed {
+  text-decoration: line-through;
 }
