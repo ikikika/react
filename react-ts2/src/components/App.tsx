@@ -13,19 +13,20 @@ export class App extends React.Component<{}, IState> {
 
   handleSubmit(e: any) {
     e.preventDefault();
-
-    this.setState({
-      //this code resets the state
-      currentTask: "",
-      tasks: [
-        ...this.state.tasks,
-        {
-          id: this._timeInMilliseconds(),
-          value: this.state.currentTask,
-          completed: false
-        }
-      ]
-    });
+    if (this.state.currentTask != "") {
+      this.setState({
+        //this code resets the state
+        currentTask: "",
+        tasks: [
+          ...this.state.tasks,
+          {
+            id: this._timeInMilliseconds(),
+            value: this.state.currentTask,
+            completed: false
+          }
+        ]
+      });
+    }
   }
 
   deleteTask(id: number) {
