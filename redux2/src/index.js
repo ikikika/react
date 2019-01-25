@@ -15,7 +15,10 @@ const allReducers = combineReducers({
   products: productsReducer,
   user: userReducer
 });
-const store = createStore(allReducers);
+const store = createStore(allReducers, {
+  products: [{ name: "iPhone" }],
+  user: "Micheal"
+});
 console.log(store.getState());
 
 ReactDOM.render(<App />, document.getElementById("root"));
