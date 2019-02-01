@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 class App extends Component {
   render() {
+    console.log(this.props);
     return (
       <div className="App">
         <header className="App-header">
@@ -26,4 +27,8 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+//mapStateToProps: receives the state from the store, then we can decide what props we want to pass to the component
+const mapStateToProps = state => {
+  return state;
+};
+export default connect(mapStateToProps)(App);
