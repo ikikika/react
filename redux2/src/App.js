@@ -28,7 +28,8 @@ class App extends Component {
 }
 
 //mapStateToProps: receives the state from the store, then we can decide what props we want to pass to the component
-const mapStateToProps = state => {
-  return state;
-};
+const mapStateToProps = state => ({
+  products: state.products,
+  user: state.user
+});
 export default connect(mapStateToProps)(App);
