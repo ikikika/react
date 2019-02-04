@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { connect } from "react-redux";
 
@@ -11,15 +10,15 @@ class App extends Component {
     this.onUpdateUser = this.onUpdateUser.bind(this);
   }
 
-  onUpdateUser() {
-    this.props.onUpdateUser("Nami");
+  onUpdateUser(e) {
+    this.props.onUpdateUser(e.target.value);
   }
 
   render() {
     console.log(this.props);
     return (
       <div className="App">
-        <div onClick={this.onUpdateUser}>update user</div>
+        <input onChange={this.onUpdateUser} />
         {this.props.user}
       </div>
     );
