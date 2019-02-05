@@ -26,10 +26,14 @@ class App extends Component {
 }
 
 //mapStateToProps: receives the state from the store, then we can decide what props we want to pass to the component
-const mapStateToProps = state => ({
-  products: state.products,
-  user: state.user
-});
+const mapStateToProps = (state, props) => {
+  console.log(props);
+  return {
+    products: state.products,
+    user: state.user,
+    userPlusProp: `${state.user} ${props.randomProp}`
+  };
+};
 
 //mapActionsToProps: allows us to dispatch actions easily so we don't need to dispatch actions from the components.
 // we can call functions that will automaticlaly dispatch actions to the store
