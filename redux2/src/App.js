@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import { updateUser } from "./actions/user-actions";
 class App extends Component {
@@ -37,8 +38,13 @@ const mapStateToProps = (state, props) => {
 
 //mapActionsToProps: allows us to dispatch actions easily so we don't need to dispatch actions from the components.
 // we can call functions that will automaticlaly dispatch actions to the store
-const mapActionsToProps = {
-  onUpdateUser: updateUser
+const mapActionsToProps = (dispatch, props) => {
+  return bindActionCreators(
+    {
+      onUpdateUser: updateUser
+    },
+    dispatch
+  );
 };
 export default connect(
   mapStateToProps,
