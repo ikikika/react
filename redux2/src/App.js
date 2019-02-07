@@ -38,26 +38,29 @@ const mapStateToProps = (state, props) => {
 
 //mapActionsToProps: allows us to dispatch actions easily so we don't need to dispatch actions from the components.
 // we can call functions that will automaticlaly dispatch actions to the store
-const mapActionsToProps = (dispatch, props) => {
-  return bindActionCreators(
-    {
-      onUpdateUser: updateUser
-    },
-    dispatch
-  );
+// const mapActionsToProps = (dispatch, props) => {
+//   return bindActionCreators(
+//     {
+//       onUpdateUser: updateUser
+//     },
+//     dispatch
+//   );
+// };
+const mapActionsToProps = {
+  onUpdateUser: updateUser
 };
 
 //mergeProps: result is what component will receive. takes 3 arguments
 //propsFromState: whatever we return from mapStateToProps
 //propsFromDispatch: whatever we return from mapActionsToProps
 //ownProps: passed in props
-const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
-  console.log(propsFromState, propsFromDispatch, ownProps);
-  return {};
-};
+// const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
+//   console.log(propsFromState, propsFromDispatch, ownProps);
+//   return {};
+// };
 
 export default connect(
   mapStateToProps,
-  mapActionsToProps,
-  mergeProps
+  mapActionsToProps
+  //mergeProps
 )(App);
