@@ -46,7 +46,18 @@ const mapActionsToProps = (dispatch, props) => {
     dispatch
   );
 };
+
+//mergeProps: result is what component will receive. takes 3 arguments
+//propsFromState: whatever we return from mapStateToProps
+//propsFromDispatch: whatever we return from mapActionsToProps
+//ownProps: passed in props
+const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
+  console.log(propsFromState, propsFromDispatch, ownProps);
+  return {};
+};
+
 export default connect(
   mapStateToProps,
-  mapActionsToProps
+  mapActionsToProps,
+  mergeProps
 )(App);
