@@ -3,12 +3,16 @@ import "./App.css";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { updateUser } from "./actions/user-actions";
+import { updateUser, apiRequest } from "./actions/user-actions";
 class App extends Component {
   //we need to access "this" in our methods, we need to bind it in the constructor
   constructor(props) {
     super(props);
     this.onUpdateUser = this.onUpdateUser.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.onApiRequest();
   }
 
   onUpdateUser(e) {
@@ -47,7 +51,8 @@ const mapStateToProps = (state, props) => {
 //   );
 // };
 const mapActionsToProps = {
-  onUpdateUser: updateUser
+  onUpdateUser: updateUser,
+  onApiRequest: apiRequest
 };
 
 //mergeProps: result is what component will receive. takes 3 arguments
