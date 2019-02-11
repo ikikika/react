@@ -40,11 +40,19 @@ class App extends Component {
 //     userPlusProp: `${state.user} ${props.randomProp}`
 //   };
 // };
+const productsSelector = createSelector(
+  state => state.products,
+  products => products
+);
+const userSelector = createSelector(
+  state => state.user,
+  user => user
+);
 const mapStateToProps = createSelector(
   //each argument here is a function that get passed to state
   //first few arguments are states
-  state => state.products,
-  state => state.user,
+  productsSelector,
+  userSelector,
   //last argument is a function that receive the results of the previous arguments
   (products, user) => ({
     products,
