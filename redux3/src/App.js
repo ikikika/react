@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 
+import Posts from "./components/Posts";
 import "./App.css";
 
 class App extends Component {
   render() {
-    return <div>HEllo</div>;
+    return (
+      <div>
+        <Posts />
+      </div>
+    );
   }
 }
 
