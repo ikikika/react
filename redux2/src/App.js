@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+//import { bindActionCreators } from "redux";
+import { createSelector } from "reselect";
 
 import { updateUser, apiRequest } from "./actions/user-actions";
 class App extends Component {
@@ -11,9 +12,9 @@ class App extends Component {
     this.onUpdateUser = this.onUpdateUser.bind(this);
   }
 
-  componentDidMount() {
-    this.props.onApiRequest();
-  }
+  // componentDidMount() {
+  //   this.props.onApiRequest();
+  // }
 
   onUpdateUser(e) {
     this.props.onUpdateUser(e.target.value);
@@ -31,14 +32,25 @@ class App extends Component {
 }
 
 //mapStateToProps: receives the state from the store, then we can decide what props we want to pass to the component
-const mapStateToProps = (state, props) => {
-  console.log(props);
-  return {
-    products: state.products,
-    user: state.user,
-    userPlusProp: `${state.user} ${props.randomProp}`
-  };
-};
+// const mapStateToProps = (state, props) => {
+//   console.log(props);
+//   return {
+//     products: state.products,
+//     user: state.user,
+//     userPlusProp: `${state.user} ${props.randomProp}`
+//   };
+// };
+const mapStateToProps = createSelector(
+  //each argument here is a function that get passed to state
+  //first few arguments are states
+  state => state.products,
+  state => state.user,
+  //last argument is a function that receive the results of the previous arguments
+  (products, user) => ({
+    products,
+    user
+  })
+);
 
 //mapActionsToProps: allows us to dispatch actions easily so we don't need to dispatch actions from the components.
 // we can call functions that will automaticlaly dispatch actions to the store
