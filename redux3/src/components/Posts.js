@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 class Posts extends Component {
   componentWillMount() {
-    console.log("123");
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(result => result.json())
+      .then(data => console.log(data));
   }
   render() {
     return (
