@@ -9,10 +9,27 @@ class Postform extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  formSubmit(e) {
+  onSubmit(e) {
     e.preventDefault();
+
+    const post = {
+      title: this.state.title,
+      body: this.state.body
+    };
+
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      body: JSON.stringify(post)
+    })
+      .then(result => result.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
   }
 
   onChange(e) {
@@ -23,7 +40,7 @@ class Postform extends Component {
     return (
       <div>
         <h1>Add Post</h1>
-        <form onSubmit={e => this.formSubmit(e)}>
+        <form onSubmit={this.onSubmit}>
           <input
             type="text"
             name="title"
