@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
 
 import Posts from "./components/Posts";
 import Postform from "./components/Postform";
 import "./App.css";
 
-const store = createStore(() => [], {}, applyMiddleware());
+import store from "./store";
 
 class App extends Component {
   render() {
