@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "rootDir": "../",
+    "outDir": "dist",
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "allowJs": true
+  },
+  "exclude": ["node_modules"]
+}
