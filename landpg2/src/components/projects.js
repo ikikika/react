@@ -5,6 +5,15 @@ class Projects extends Component {
     super(props);
     this.state = { activeTab: 0 };
   }
+  toggleCategories() {
+    if (this.state.activeTab === 0) {
+      return <div>this is react</div>;
+    } else if (this.state.activeTab === 1) {
+      return <div>this is angular</div>;
+    } else if (this.state.activeTab === 2) {
+      return <div>this is php</div>;
+    }
+  }
   render() {
     return (
       <div className="category-tabs">
@@ -14,11 +23,11 @@ class Projects extends Component {
           ripple
         >
           <Tab>React</Tab>
-          <Tab>React 123</Tab>
           <Tab>Angular</Tab>
           <Tab>PHP</Tab>
-          <Tab>Node</Tab>
         </Tabs>
+
+        <section className="projects-grid">{this.toggleCategories()}</section>
       </div>
     );
   }
