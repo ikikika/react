@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { Component } from "react";
 import { Grid, Cell } from "react-mdl";
 class Home extends Component {
