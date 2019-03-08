@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Tabs, Tab } from "react-mdl";
+import { Tabs, Tab, Grid, Cell } from "react-mdl";
 class Projects extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +27,13 @@ class Projects extends Component {
           <Tab>PHP</Tab>
         </Tabs>
 
-        <section className="projects-grid">{this.toggleCategories()}</section>
+        <section className="projects-grid">
+          <Grid className="projects-grid">
+            <Cell col={12}>
+              <div className="content">{this.toggleCategories()}</div>
+            </Cell>
+          </Grid>
+        </section>
       </div>
     );
   }
