@@ -21,71 +21,77 @@ class Projects extends Component {
     if (this.state.activeTab === 0) {
       return (
         <div className="projects-grid">
-          <Card shadow={5} style={{ minWidth: "450", margin: "auto" }}>
-            <CardTitle
-              style={{
-                color: "#fff",
-                height: "176px",
-                background:
-                  "url(https://via.placeholder.com/150) center / cover"
-              }}
-            >
-              React Project #1
-            </CardTitle>
-            <CardText>Lorem ipsum dolor sit amer</CardText>
-            <CardActions border>
-              <Button colored>GIthub</Button>
-              <Button colored>GIthub</Button>
-              <Button colored>GIthub</Button>
-            </CardActions>
-            <CardMenu style={{ color: "#fff" }}>
-              <IconButton name="share" />
-            </CardMenu>
-          </Card>
+          <Cell col={4}>
+            <Card shadow={5} style={{ minWidth: "450", margin: "auto" }}>
+              <CardTitle
+                style={{
+                  color: "#fff",
+                  height: "176px",
+                  background:
+                    "url(https://via.placeholder.com/150) center / cover"
+                }}
+              >
+                React Project #1
+              </CardTitle>
+              <CardText>Lorem ipsum dolor sit amer</CardText>
+              <CardActions border>
+                <Button colored>GIthub</Button>
+                <Button colored>GIthub</Button>
+                <Button colored>GIthub</Button>
+              </CardActions>
+              <CardMenu style={{ color: "#fff" }}>
+                <IconButton name="share" />
+              </CardMenu>
+            </Card>
+          </Cell>
 
-          <Card shadow={5} style={{ minWidth: "450", margin: "auto" }}>
-            <CardTitle
-              style={{
-                color: "#fff",
-                height: "176px",
-                background:
-                  "url(https://via.placeholder.com/150) center / cover"
-              }}
-            >
-              React Project #1
-            </CardTitle>
-            <CardText>Lorem ipsum dolor sit amer</CardText>
-            <CardActions border>
-              <Button colored>GIthub</Button>
-              <Button colored>GIthub</Button>
-              <Button colored>GIthub</Button>
-            </CardActions>
-            <CardMenu style={{ color: "#fff" }}>
-              <IconButton name="share" />
-            </CardMenu>
-          </Card>
+          <Cell col={4}>
+            <Card shadow={5} style={{ minWidth: "450", margin: "auto" }}>
+              <CardTitle
+                style={{
+                  color: "#fff",
+                  height: "176px",
+                  background:
+                    "url(https://via.placeholder.com/150) center / cover"
+                }}
+              >
+                React Project #1
+              </CardTitle>
+              <CardText>Lorem ipsum dolor sit amer</CardText>
+              <CardActions border>
+                <Button colored>GIthub</Button>
+                <Button colored>GIthub</Button>
+                <Button colored>GIthub</Button>
+              </CardActions>
+              <CardMenu style={{ color: "#fff" }}>
+                <IconButton name="share" />
+              </CardMenu>
+            </Card>
+          </Cell>
 
-          <Card shadow={5} style={{ minWidth: "450", margin: "auto" }}>
-            <CardTitle
-              style={{
-                color: "#fff",
-                height: "176px",
-                background:
-                  "url(https://via.placeholder.com/150) center / cover"
-              }}
-            >
-              React Project #1
-            </CardTitle>
-            <CardText>Lorem ipsum dolor sit amer</CardText>
-            <CardActions border>
-              <Button colored>GIthub</Button>
-              <Button colored>GIthub</Button>
-              <Button colored>GIthub</Button>
-            </CardActions>
-            <CardMenu style={{ color: "#fff" }}>
-              <IconButton name="share" />
-            </CardMenu>
-          </Card>
+          <Cell col={4}>
+            <Card shadow={5} style={{ minWidth: "450", margin: "auto" }}>
+              <CardTitle
+                style={{
+                  color: "#fff",
+                  height: "176px",
+                  background:
+                    "url(https://via.placeholder.com/150) center / cover"
+                }}
+              >
+                React Project #1
+              </CardTitle>
+              <CardText>Lorem ipsum dolor sit amer</CardText>
+              <CardActions border>
+                <Button colored>GIthub</Button>
+                <Button colored>GIthub</Button>
+                <Button colored>GIthub</Button>
+              </CardActions>
+              <CardMenu style={{ color: "#fff" }}>
+                <IconButton name="share" />
+              </CardMenu>
+            </Card>
+          </Cell>
         </div>
       );
     } else if (this.state.activeTab === 1) {
@@ -107,9 +113,16 @@ class Projects extends Component {
           <Tab>PHP</Tab>
         </Tabs>
 
+        {/* <Grid>{this.toggleCategories()}</Grid> */}
         <Grid>
-          <Cell col={12}>
-            <div className="content">{this.toggleCategories()}</div>
+          <Cell col={6} tablet={8} shadow={8}>
+            6 (8 tablet)
+          </Cell>
+          <Cell col={4} tablet={6} shadow={8}>
+            4 (6 tablet)
+          </Cell>
+          <Cell col={2} phone={4} shadow={8}>
+            2 (4 phone)
           </Cell>
         </Grid>
       </div>
