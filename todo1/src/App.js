@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Todos from "./Todos";
 class App extends Component {
   state = {
     todos: [{ id: 1, content: "do this" }, { id: 2, content: "do that" }]
@@ -8,7 +8,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>App</h1>
+        <h1 className="center bl ue-text">List</h1>
+        <Todos todos={this.state.todos} />
       </div>
     );
   }
