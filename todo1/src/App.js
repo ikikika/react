@@ -7,8 +7,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1 className="center bl ue-text">List</h1>
+      <div className="container">
+        <h1 className="center blue-text">List</h1>
         <Todos todos={this.state.todos} />
       </div>
     );
