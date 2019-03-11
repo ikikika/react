@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import NavBar from "./navbar";
-
+import Posts from "./posts";
 class App extends Component {
   render() {
     return (
@@ -17,6 +17,7 @@ class App extends Component {
             <NavBar />
           </Toolbar>
         </AppBar>
+        <Posts />
       </div>
     );
   }
