@@ -8,7 +8,11 @@ class App extends Component {
   // this function has to be in container component because the state is here
   // define the function and pass to ui component as prop
   deleteTodo = id => {
-    console.log(id);
+    const todos = this.state.todos.filter(todo => {
+      return todo.id !== id; // will not reinsert into array if this condition is false
+    });
+    // key and value both have the same name
+    this.setState({ todos });
   };
 
   render() {
