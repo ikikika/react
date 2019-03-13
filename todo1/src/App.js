@@ -18,7 +18,9 @@ class App extends Component {
   };
 
   addTodo = todo => {
-    console.log("from container: " + todo.content);
+    todo.id = Date.now();
+    let todos = [...this.state.todos, todo];
+    this.setState({ todos });
   };
 
   render() {
