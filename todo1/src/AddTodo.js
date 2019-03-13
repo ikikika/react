@@ -11,10 +11,16 @@ class AddTodo extends Component {
       content: e.target.value
     });
   };
+
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    // call function to add a todo
+    this.props.addTodo(this.state);
+    this.setState({
+      content: ""
+    });
   };
+
   render() {
     return (
       <div>

@@ -17,12 +17,16 @@ class App extends Component {
     this.setState({ todos });
   };
 
+  addTodo = todo => {
+    console.log("from container: " + todo.content);
+  };
+
   render() {
     return (
       <div className="container">
         <h1 className="center blue-text">List</h1>
         <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
-        <AddTodo />
+        <AddTodo addTodo={this.addTodo} />
       </div>
     );
   }
