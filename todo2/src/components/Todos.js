@@ -1,9 +1,23 @@
 import React, { Component } from "react";
 
 class Todos extends Component {
-  state = { todos: ["do this", "do that"] };
+  state = {
+    todos: [
+      { id: 1, content: "do this" },
+      { id: 2, content: "do that" },
+      { id: 3, content: "do anything" }
+    ]
+  };
   render() {
-    return <h1>TOdos Container</h1>;
+    const todoList =
+      this.state.todos.length === 0 ? (
+        <p>No todos</p>
+      ) : (
+        this.state.todos.map(todo => {
+          return <p>{todo.content}</p>;
+        })
+      );
+    return todoList;
   }
 }
 
