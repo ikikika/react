@@ -8,13 +8,28 @@ class Todos extends Component {
       { id: 3, content: "do anything" }
     ]
   };
+  deleteTodo(id) {
+    console.log(id);
+  }
+
   render() {
     const todoList =
       this.state.todos.length === 0 ? (
         <p>No todos</p>
       ) : (
         this.state.todos.map(todo => {
-          return <p>{todo.content}</p>;
+          return (
+            <p key={todo.id}>
+              {todo.content}
+              <input
+                type="button"
+                value="delete"
+                onClick={() => {
+                  this.deleteTodo(todo.id);
+                }}
+              />
+            </p>
+          );
         })
       );
     return todoList;
