@@ -14,7 +14,11 @@ class Todos extends Component {
     });
     this.setState({ todos: todos });
   }
-
+  submitTodo = e => {
+    e.preventDefault();
+    console.log(this.input1.value);
+    this.input1.value = "";
+  };
   render() {
     const todoList =
       this.state.todos.length === 0 ? (
@@ -35,7 +39,17 @@ class Todos extends Component {
           );
         })
       );
-    return todoList;
+    return (
+      <div>
+        <div>{todoList}</div>
+        <div>
+          <form onSubmit={this.submitTodo}>
+            <input type="text" ref={userInput => (this.input1 = userInput)} />
+            <input type="submit" />
+          </form>
+        </div>
+      </div>
+    );
   }
 }
 
