@@ -46,7 +46,7 @@ class Todos extends Component {
     //   );
     return (
       <div>
-        <TodoItems />
+        <TodoItems todoItems={this.state.todos} />
         <div>
           <form onSubmit={this.submitTodo}>
             <input type="text" ref={userInput => (this.input1 = userInput)} />
