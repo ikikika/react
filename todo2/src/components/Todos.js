@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TodoItems from "./TodoItems";
 
 class Todos extends Component {
   state = {
@@ -24,28 +25,28 @@ class Todos extends Component {
     this.input1.value = "";
   };
   render() {
-    const todoList =
-      this.state.todos.length === 0 ? (
-        <p>No todos</p>
-      ) : (
-        this.state.todos.map(todo => {
-          return (
-            <p key={todo.id}>
-              {todo.content}
-              <input
-                type="button"
-                value="delete"
-                onClick={() => {
-                  this.deleteTodo(todo.id);
-                }}
-              />
-            </p>
-          );
-        })
-      );
+    // const todoList =
+    //   this.state.todos.length === 0 ? (
+    //     <p>No todos</p>
+    //   ) : (
+    //     this.state.todos.map(todo => {
+    //       return (
+    //         <p key={todo.id}>
+    //           {todo.content}
+    //           <input
+    //             type="button"
+    //             value="delete"
+    //             onClick={() => {
+    //               this.deleteTodo(todo.id);
+    //             }}
+    //           />
+    //         </p>
+    //       );
+    //     })
+    //   );
     return (
       <div>
-        <div>{todoList}</div>
+        <TodoItems />
         <div>
           <form onSubmit={this.submitTodo}>
             <input type="text" ref={userInput => (this.input1 = userInput)} />
