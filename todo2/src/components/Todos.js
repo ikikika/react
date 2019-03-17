@@ -16,7 +16,11 @@ class Todos extends Component {
   }
   submitTodo = e => {
     e.preventDefault();
-    console.log(this.input1.value);
+    if (this.input1.value !== "") {
+      const newTodo = { id: Date.now(), content: this.input1.value };
+      const todos = [...this.state.todos, newTodo];
+      this.setState({ todos: todos });
+    }
     this.input1.value = "";
   };
   render() {
