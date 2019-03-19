@@ -9,13 +9,12 @@ class Todos extends Component {
       { id: 3, content: "do anything" }
     ]
   };
-  deleteTodo(id) {
-    console.log(id);
-    // const todos = this.state.todos.filter(todo => {
-    //   return todo.id !== id;
-    // });
-    // this.setState({ todos: todos });
-  }
+  deleteTodo = id => {
+    const todos = this.state.todos.filter(todo => {
+      return todo.id !== id;
+    });
+    this.setState({ todos: todos });
+  };
   submitTodo = e => {
     e.preventDefault();
     if (this.input1.value !== "") {
