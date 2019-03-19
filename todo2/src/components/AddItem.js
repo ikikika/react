@@ -6,7 +6,9 @@ class AddItem extends Component {
   };
 
   handleChange = e => {
-    console.log(e.target.value);
+    this.setState({
+      content: e.target.value
+    });
   };
 
   render() {
