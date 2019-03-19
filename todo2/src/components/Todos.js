@@ -10,10 +10,11 @@ class Todos extends Component {
     ]
   };
   deleteTodo(id) {
-    const todos = this.state.todos.filter(todo => {
-      return todo.id !== id;
-    });
-    this.setState({ todos: todos });
+    console.log(id);
+    // const todos = this.state.todos.filter(todo => {
+    //   return todo.id !== id;
+    // });
+    // this.setState({ todos: todos });
   }
   submitTodo = e => {
     e.preventDefault();
@@ -27,7 +28,10 @@ class Todos extends Component {
   render() {
     return (
       <div>
-        <TodoItems todoItems={this.state.todos} />
+        <TodoItems
+          todoItems={this.state.todos}
+          deleteTodoItem={this.deleteTodo}
+        />
         <div>
           <form onSubmit={this.submitTodo}>
             <input type="text" ref={userInput => (this.input1 = userInput)} />

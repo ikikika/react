@@ -1,7 +1,6 @@
 import React from "react";
 
-const TodoItems = ({ todoItems }) => {
-  console.log(todoItems);
+const TodoItems = ({ todoItems, deleteTodoItem }) => {
   const todoList =
     todoItems.length === 0 ? (
       <p>No todos</p>
@@ -14,7 +13,7 @@ const TodoItems = ({ todoItems }) => {
               type="button"
               value="delete"
               onClick={() => {
-                this.deleteTodo(todo.id);
+                deleteTodoItem(todo.id);
               }}
             />
           </p>
