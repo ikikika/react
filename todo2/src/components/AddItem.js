@@ -13,7 +13,7 @@ class AddItem extends Component {
 
   submitTodo = e => {
     e.preventDefault();
-    this.props.addTodo(this.state);
+    this.props.addTodo(this.state.content);
     this.setState({
       content: ""
     });
@@ -23,7 +23,11 @@ class AddItem extends Component {
     return (
       <div>
         <form onSubmit={this.submitTodo}>
-          <input type="text" onChange={this.handleChange} />
+          <input
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.content}
+          />
           <input type="submit" />
         </form>
       </div>

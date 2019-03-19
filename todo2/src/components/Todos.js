@@ -17,14 +17,11 @@ class Todos extends Component {
     this.setState({ todos: todos });
   };
   addNewTodo = todo => {
-    console.log(todo);
-    // e.preventDefault();
-    // if (this.input1.value !== "") {
-    //   const newTodo = { id: Date.now(), content: this.input1.value };
-    //   const todos = [...this.state.todos, newTodo];
-    //   this.setState({ todos: todos });
-    // }
-    // this.input1.value = "";
+    if (todo !== "") {
+      const newTodo = { id: Date.now(), content: todo };
+      const todos = [...this.state.todos, newTodo];
+      this.setState({ todos: todos });
+    }
   };
   render() {
     return (
