@@ -11,8 +11,15 @@ class AddItem extends Component {
     });
   };
 
+  submitTodo = e => {
+    e.preventDefault();
+    this.props.addTodo(this.state);
+    this.setState({
+      content: ""
+    });
+  };
+
   render() {
-    console.log(this.state);
     return (
       <div>
         <form onSubmit={this.submitTodo}>

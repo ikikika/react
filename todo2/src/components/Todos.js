@@ -16,14 +16,15 @@ class Todos extends Component {
     });
     this.setState({ todos: todos });
   };
-  submitTodo = e => {
-    e.preventDefault();
-    if (this.input1.value !== "") {
-      const newTodo = { id: Date.now(), content: this.input1.value };
-      const todos = [...this.state.todos, newTodo];
-      this.setState({ todos: todos });
-    }
-    this.input1.value = "";
+  addNewTodo = todo => {
+    console.log(todo);
+    // e.preventDefault();
+    // if (this.input1.value !== "") {
+    //   const newTodo = { id: Date.now(), content: this.input1.value };
+    //   const todos = [...this.state.todos, newTodo];
+    //   this.setState({ todos: todos });
+    // }
+    // this.input1.value = "";
   };
   render() {
     return (
@@ -32,7 +33,7 @@ class Todos extends Component {
           todoItems={this.state.todos}
           deleteTodoItem={this.deleteTodo}
         />
-        <AddItem />
+        <AddItem addTodo={this.addNewTodo} />
       </div>
     );
   }
