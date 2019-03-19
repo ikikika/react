@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoItems from "./TodoItems";
+import AddItem from "./AddItem";
 
 class Todos extends Component {
   state = {
@@ -31,12 +32,7 @@ class Todos extends Component {
           todoItems={this.state.todos}
           deleteTodoItem={this.deleteTodo}
         />
-        <div>
-          <form onSubmit={this.submitTodo}>
-            <input type="text" ref={userInput => (this.input1 = userInput)} />
-            <input type="submit" />
-          </form>
-        </div>
+        <AddItem />
       </div>
     );
   }
