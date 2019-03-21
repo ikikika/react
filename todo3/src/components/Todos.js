@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import TodoItems from "./TodoItems";
+import AddTodo from "./AddTodo";
 
 export default class Todos extends Component {
   state = {
@@ -7,48 +9,21 @@ export default class Todos extends Component {
       { id: 2, content: "12312 213123" }
     ]
   };
-  deleteTodo(id) {
+  deleteTodo = id => {
     const todos = this.state.todos.filter(todo => {
       return todo.id !== id;
     });
     this.setState({ todos });
-  }
-  handleSubmit(e) {
-    e.preventDefault();
+  };
+  addTodo = data => {
     const newTodo = {
       id: Date.now(),
-      content: this.input1.value
+      content: data.content
     };
     const newTodoList = [...this.state.todos, newTodo];
     this.setState({ todos: newTodoList });
-    this.input1.value = "";
-  }
+  };
   render() {
-    const todos =
-      this.state.todos.length === 0 ? (
-        <tr>
-          <td colSpan="3">No todos</td>
-        </tr>
-      ) : (
-        this.state.todos.map(todo => {
-          return (
-            <tr key={todo.id}>
-              <td>{todo.id}</td>
-              <td>{todo.content}</td>
-              <td>
-                <input
-                  type="button"
-                  value="delete"
-                  onClick={() => {
-                    this.deleteTodo(todo.id);
-                  }}
-                />
-              </td>
-            </tr>
-          );
-        })
-      );
-
     return (
       <div>
         <table border="1">
@@ -59,12 +34,14 @@ export default class Todos extends Component {
               <th>action</th>
             </tr>
           </thead>
-          <tbody>{todos}</tbody>
+          <tbody>
+            <TodoItems
+              todos={this.state.todos}
+              deleteThisTodo={this.deleteTodo}
+            />
+          </tbody>
         </table>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" ref={userInput => (this.input1 = userInput)} />
-          <input type="submit" />
-        </form>
+        <AddTodo addNewTodo={this.addTodo} />
       </div>
     );
   }
