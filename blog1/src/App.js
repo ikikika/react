@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -12,10 +12,12 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/:post_id" component={Post} />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/:post_id" component={Post} />
+        </Switch>
       </div>
     </BrowserRouter>
   );
