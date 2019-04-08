@@ -6,7 +6,7 @@ import "materialize-css/dist/css/materialize.min.css";
 class Navbar extends Component {
   componentDidMount() {
     let elem = document.querySelector(".sidenav");
-    let instance = M.Sidenav.init(elem, {
+    M.Sidenav.init(elem, {
       edge: "left",
       inDuration: 250
     });
@@ -19,9 +19,13 @@ class Navbar extends Component {
             <Link to="/" className="brand-logo">
               Logo
             </Link>
-            <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+            <button
+              href="#"
+              data-target="mobile-demo"
+              className="sidenav-trigger red lighten-2"
+            >
               <i className="material-icons">menu</i>
-            </a>
+            </button>
             <ul id="slide-out" className="right hide-on-med-and-down">
               <li>
                 <NavLink to="/">Home</NavLink>
