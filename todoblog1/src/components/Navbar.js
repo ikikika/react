@@ -19,13 +19,13 @@ class Navbar extends Component {
             <Link to="/" className="brand-logo">
               Logo
             </Link>
-            <button
+            <a
               href="#"
               data-target="mobile-demo"
               className="sidenav-trigger red lighten-2"
             >
               <i className="material-icons">menu</i>
-            </button>
+            </a>
             <ul id="slide-out" className="right hide-on-med-and-down">
               <li>
                 <NavLink to="/">Home</NavLink>
