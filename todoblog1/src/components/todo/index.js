@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import TodoItem from "./TodoItem";
+import AddTodo from "./AddTodo";
 
 class Todos extends Component {
   state = {
     todos: [
       { id: 1, content: "asdas sdfsfs" },
       { id: 2, content: "fsd7839hdiu sdfsfs" }
-    ],
-    newTodo: ""
+    ]
   };
   deleteTodo = id => {
     const todos = this.state.todos.filter(todo => {
@@ -15,16 +15,10 @@ class Todos extends Component {
     });
     this.setState({ todos });
   };
-  handleChange = e => {
-    this.setState({ ...this.state, newTodo: e.target.value });
-  };
-  handleSubmit = e => {
-    e.preventDefault();
-    const todos = [
-      ...this.state.todos,
-      { id: Date.now(), content: this.state.newTodo }
-    ];
-    this.setState({ todos, newTodo: "" });
+
+  addTodoToState = newTodo => {
+    const todos = [...this.state.todos, { id: Date.now(), content: newTodo }];
+    this.setState({ todos });
   };
   render() {
     return (
@@ -43,25 +37,7 @@ class Todos extends Component {
             />
           </tbody>
         </table>
-        <form onSubmit={this.handleSubmit}>
-          <div className="row">
-            <div className="input-field col s12 m10">
-              <input
-                id="todoitem"
-                type="text"
-                className="validate"
-                value={this.state.newTodo}
-                onChange={this.handleChange}
-              />
-              <label htmlFor="todoitem">Todo Item</label>
-            </div>
-            <div className="input-field col s12 m2">
-              <button className="waves-effect waves-light btn" type="submit">
-                <i className="material-icons left">add_box</i>
-              </button>
-            </div>
-          </div>
-        </form>
+        <AddTodo addTodo={this.addTodoToState} />
       </div>
     );
   }
