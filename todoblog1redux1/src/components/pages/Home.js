@@ -4,9 +4,9 @@ import { connect } from "react-redux"; // HOC to connect this component with the
 
 class Home extends Component {
   render() {
-    console.log(this.props);
-    const postList = this.state.posts.length ? (
-      this.state.posts.map(post => {
+    const posts = this.props.posts;
+    const postList = posts.length ? (
+      posts.map(post => {
         return (
           <div className="col s12" key={post.id}>
             <div className="card horizontal">
