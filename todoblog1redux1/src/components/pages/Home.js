@@ -1,18 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux"; // HOC to connect this component with the redux store
 
-export default class Home extends Component {
-  state = {
-    posts: []
-  };
-  componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/posts/").then(result => {
-      const posts = result.data.slice(0, 5);
-      this.setState({ posts });
-    });
-  }
+class Home extends Component {
   render() {
+    console.log(this.props);
     const postList = this.state.posts.length ? (
       this.state.posts.map(post => {
         return (
@@ -42,3 +34,14 @@ export default class Home extends Component {
     return <div className="container">{postList}</div>;
   }
 }
+
+// if component want access to store, we need to map the data to the props of the component
+const mapStateToProps = state => {
+  // the return object represents the different properties we want to add to posts
+  // grab data from state (which is represented by store by the reducer) and map to props
+  return {
+    posts: state.posts
+  };
+};
+
+export default connect(mapStateToProps)(Home);
