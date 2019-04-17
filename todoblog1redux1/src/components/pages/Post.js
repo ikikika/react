@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 class Post extends Component {
   render() {
+    console.log(this.props);
     const post = this.props.post ? (
       <React.Fragment>
         <h1>{this.props.post.title}</h1>
@@ -24,4 +25,15 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Post);
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePost: id => {
+      dispatch({ type: "DELETE_POST", id: id });
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Post);
