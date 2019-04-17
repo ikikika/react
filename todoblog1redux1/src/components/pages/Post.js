@@ -2,12 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 class Post extends Component {
+  handleClick = () => {
+    this.props.deletePost(this.props.post.id);
+  };
   render() {
-    console.log(this.props);
     const post = this.props.post ? (
       <React.Fragment>
         <h1>{this.props.post.title}</h1>
         <p>{this.props.post.body}</p>
+        <div className="center">
+          <button className="btn grey" onClick={this.handleClick}>
+            Delete Post
+          </button>
+        </div>
       </React.Fragment>
     ) : (
       <p>loading</p>
