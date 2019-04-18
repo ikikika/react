@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 class Post extends Component {
   handleClick = () => {
     this.props.deletePost(this.props.post.id);
+    this.props.history.push("/");
   };
   render() {
     const post = this.props.post ? (
