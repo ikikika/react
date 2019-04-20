@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
+import { BrowserRouer } from "react-router-dom";
 
 function App() {
   return (
-    <div className="container">
-      <h1>app</h1>
-    </div>
+    <BrowserRouer>
+      <div className="container">
+        <h1>app</h1>
+      </div>
+    </BrowserRouer>
   );
 }
 
