@@ -1,10 +1,14 @@
 import React from "react";
 import ProjectSumamry from "./ProjectSummary";
 
-const ProjectList = () => {
+const ProjectList = ({ projectsFromStore }) => {
+  console.log(projectsFromStore);
   return (
     <div className="project-list section">
-      <ProjectSumamry />
+      {projectsFromStore &&
+        projectsFromStore.map(project => {
+          return <ProjectSumamry projectFromStore={project} key={project.id} />;
+        })}
     </div>
   );
 };
