@@ -4,17 +4,22 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./store/reducers/rootReducer";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
-import { getFirebase } from "react-redux-firebase";
-import { getFirestore } from "redux-firestore";
+import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
+import { reduxFirestore, getFirestore } from "redux-firestore";
+import firebaseConfig from "./config/firebaseConfig";
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore }))
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    reactReduxFirebase(firebaseConfig),
+    reduxFirestore(firebaseConfig)
+  )
 );
 
 ReactDOM.render(
