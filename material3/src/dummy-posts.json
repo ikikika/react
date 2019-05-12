@@ -1,0 +1,22 @@
+[
+  {
+    "title": "first post",
+    "excerpt": "lorem ipsum dolor sit amet",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "title": "secomd post",
+    "excerpt": "123 lorem ipsum dolor sit amet",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "title": "Lizard",
+    "excerpt": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "title": "Lizard2",
+    "excerpt": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+    "image": "https://via.placeholder.com/150"
+  }
+]
