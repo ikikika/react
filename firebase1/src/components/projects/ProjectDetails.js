@@ -4,22 +4,29 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 
 const ProjectDetails = props => {
-  const id = props.match.params.id;
-  console.log(props);
-  return (
-    <div className="container section project-details">
-      <div className="card z-depth-0">
-        <div className="card-content">
-          <span className="card-title">Project Title - {id} </span>
-          <p>lorem idfsd fdfdsgdsg dfgdf </p>
-        </div>
-        <div className="card-action grey lighten-4 grey-text">
-          <div>Posted by: safdsa</div>
-          <div>2nd sept</div>
+  // const id = props.match.params.id;
+  // console.log(props);
+  const { project } = props;
+  if (project) {
+    return (
+      <div className="container section project-details">
+        <div className="card z-depth-0">
+          <div className="card-content">
+            <span className="card-title">{project.title}</span>
+            <p>{project.content} </p>
+          </div>
+          <div className="card-action grey lighten-4 grey-text">
+            <div>
+              Posted by: {project.authorFirstName} {project.authorLastName}
+            </div>
+            <div>2nd sept</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return <div className="container center">Loading...</div>;
+  }
 };
 
 const mapStateToProps = (state, ownProps) => {
