@@ -3,7 +3,7 @@ import ProjectSumamry from "./ProjectSummary";
 import { Link } from "react-router-dom";
 
 const ProjectList = ({ projectsFromStore }) => {
-  console.log(projectsFromStore);
+  // console.log(projectsFromStore);
   return (
     <div className="project-list section">
       {projectsFromStore &&
