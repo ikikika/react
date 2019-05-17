@@ -6,7 +6,9 @@ const ProjectSummary = ({ projectFromStore }) => {
     <div className="card z-depth-0 project-summary">
       <div className="card-content gret-text text-darken">
         <span className="card-title">{project.title}</span>
-        <p>POsted by: NNNN</p>
+        <p>
+          POsted by: {project.authorFirstName} {project.authorLastName}
+        </p>
         <p className="grey-text">{project.content}</p>
       </div>
     </div>
