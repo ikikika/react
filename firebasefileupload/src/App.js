@@ -34,6 +34,16 @@ class App extends Component {
     console.log(this.state);
     return (
       <div className="App">
+        <label>Progress</label>
+        <p>{this.state.progress}</p>
+        <br />
+        <br />
+        <br />
+        <label>Image:</label>
+        {this.state.image && <img src={this.state.imageURL} />}
+        <br />
+        <br />
+        <br />
         <FileUploader
           accept="image/*"
           name="image"
