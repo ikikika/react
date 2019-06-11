@@ -6,7 +6,7 @@ export const register = newUser => {
       headers: { "Content-Type": "application/json" }
     })
     .then(res => {
-      console.log(res);
+      return res;
     })
     .catch(err => {
       console.log(err);
@@ -27,7 +27,7 @@ export const login = user => {
     )
     .then(res => {
       localStorage.setItem("userToken", res.data.token);
-      console.log(res);
+      return res;
     })
     .catch(err => {
       console.log(err);
@@ -36,7 +36,7 @@ export const login = user => {
 
 export const getProfile = () => {
   return axios
-    .post("api/profile", {
+    .get("api/profile", {
       headers: { Authorization: `Bearer ${localStorage.userToken}` }
     })
     .then(res => {
