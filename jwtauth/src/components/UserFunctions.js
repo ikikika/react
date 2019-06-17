@@ -15,22 +15,16 @@ export const register = newUser => {
 
 export const login = user => {
   return axios
-    .post(
-      "api/login",
-      {
-        email: user.email,
-        password: user.password
-      },
-      {
-        headers: { "Content-Type": "application/json" }
-      }
-    )
+    .post("api/login", {
+      email: user.email,
+      password: user.password
+    })
     .then(res => {
       localStorage.setItem("userToken", res.data.token);
-      return res;
+      return { success: true, data: res };
     })
     .catch(err => {
-      console.log(err);
+      return { success: false, data: err.response };
     });
 };
 
