@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
@@ -8,9 +8,14 @@ import Register from "./components/Register";
 import Profile from "./components/Profile";
 
 class App extends Component {
+  state = {
+    isLoading: null,
+    isAuthenticated: false,
+    isAuthenticating: true
+  };
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className="App">
           <Navbar />
           <Route exact path="/" component={Landing} />
@@ -20,7 +25,7 @@ class App extends Component {
             <Route exact path="/profile" component={Profile} />
           </div>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }

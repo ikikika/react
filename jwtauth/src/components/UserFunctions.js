@@ -35,9 +35,10 @@ export const getProfile = () => {
     })
     .then(res => {
       console.log(res);
-      return res.data;
+      return { success: true, data: res.data };
     })
     .catch(err => {
       console.log(err);
+      return { success: false, data: err.response };
     });
 };
