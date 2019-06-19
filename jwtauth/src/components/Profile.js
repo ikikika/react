@@ -9,10 +9,14 @@ class Profile extends Component {
 
   componentDidMount() {
     getProfile().then(res => {
-      this.setState({
-        name: res.user.name,
-        email: res.user.email
-      });
+      if (res.success === true) {
+        this.setState({
+          name: res.data.user.name,
+          email: res.data.user.email
+        });
+      } else if (res.success === false) {
+        this.props.history.push("/login");
+      }
     });
   }
 
