@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { login } from "./UserFunctions";
+import Auth from "./Auth";
 
 class Login extends Component {
   state = {
@@ -20,7 +20,7 @@ class Login extends Component {
       password: this.state.password
     };
 
-    login(user).then(res => {
+    Auth.login(user).then(res => {
       if (res.success === true) {
         console.log(res);
         this.props.history.push("/profile");

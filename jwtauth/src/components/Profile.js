@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getProfile } from "./UserFunctions";
+import Auth from "./Auth/Auth";
 
 class Profile extends Component {
   state = {
@@ -8,7 +8,7 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    getProfile().then(res => {
+    Auth.getAuth().then(res => {
       if (res.success === true) {
         this.setState({
           name: res.data.user.name,
