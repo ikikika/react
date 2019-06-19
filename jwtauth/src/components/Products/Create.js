@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { register } from "./UserFunctions";
+import axios from "axios";
 
-class Register extends Component {
+class CreateProduct extends Component {
   state = {
     name: "",
-    email: "",
-    password: ""
+    price: "",
+    quantity: "",
+    errors: []
   };
 
   onChange = e => {
@@ -14,18 +15,25 @@ class Register extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
-    const newUser = {
+    const newProduct = {
       name: this.state.name,
-      email: this.state.email,
-      password: this.state.password
+      price: this.state.price,
+      quantity: this.state.quantity
     };
-
-    register(newUser).then(res => {
-      if (res) {
-        this.props.history.push("/login");
-      }
-    });
+    axios
+      .post("http://localhost:8000/api/product", newProduct, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.userToken}`
+        }
+      })
+      .then(res => {
+        console.log(res);
+        return res;
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
   };
 
   render() {
@@ -34,40 +42,38 @@ class Register extends Component {
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
-              <h1 className="h3 mb-3 font-weight-normal">Register</h1>
-
               <div className="form-group">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">name</label>
                 <input
                   type="text"
                   className="form-control"
                   name="name"
-                  placeholder="Enter Name"
+                  placeholder="Enter item name"
                   value={this.state.name}
                   onChange={this.onChange}
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="price">price</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
-                  name="email"
-                  placeholder="Enter Email"
-                  value={this.state.email}
+                  name="price"
+                  placeholder="Enter price"
+                  value={this.state.price}
                   onChange={this.onChange}
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="quantity">quantity</label>
                 <input
-                  type="password"
+                  type="number"
                   className="form-control"
-                  name="password"
-                  placeholder="Enter Password"
-                  value={this.state.password}
+                  name="quantity"
+                  placeholder="Enter quantity"
+                  value={this.state.quantity}
                   onChange={this.onChange}
                 />
               </div>
@@ -76,7 +82,7 @@ class Register extends Component {
                 type="submit"
                 className="btn btn-lg btn-primary btn-block"
               >
-                Register
+                Sign in
               </button>
             </form>
           </div>
@@ -86,4 +92,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default CreateProduct;
