@@ -7,7 +7,7 @@ import Posts from "./components/Posts";
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">test</div>
+      <Posts />
     </Provider>
   );
 }
