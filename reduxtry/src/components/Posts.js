@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { fetchPosts } from "../actions/PostActions";
 
+import PostForm from "./PostForm";
+
 class Posts extends Component {
   componentDidMount() {
     this.props.fetchPosts();
@@ -19,7 +21,12 @@ class Posts extends Component {
     ) : (
       <div>No Articles</div>
     );
-    return <div>{postItems}</div>;
+    return (
+      <div>
+        <PostForm />
+        {postItems}
+      </div>
+    );
   }
 }
 const mapStateToProps = store => ({
