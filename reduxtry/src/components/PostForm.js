@@ -14,9 +14,13 @@ class PostForm extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
+    const post = {
+      title: this.state.title,
+      body: this.state.body
+    };
+    this.props.createPost(post);
   };
   render() {
-    console.log(this.state);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -40,4 +44,9 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+const mapDispatchToProps = { createPost };
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(PostForm);
