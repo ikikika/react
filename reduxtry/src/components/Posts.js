@@ -10,6 +10,14 @@ class Posts extends Component {
     this.props.fetchPosts();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps.newPost);
+    if (nextProps.newPost) {
+      this.props.posts.unshift(nextProps.newPost);
+    }
+    return true;
+  }
+
   render() {
     const postItems = this.props.posts ? (
       this.props.posts.map(post => (
@@ -30,7 +38,8 @@ class Posts extends Component {
   }
 }
 const mapStateToProps = store => ({
-  posts: store.posts.items
+  posts: store.posts.items,
+  newPost: store.posts.item
 });
 const mapDispatchToProps = { fetchPosts };
 
