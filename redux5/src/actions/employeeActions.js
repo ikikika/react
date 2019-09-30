@@ -10,21 +10,27 @@ export const fetchEmployees = () => {
   };
 };
 
-export const createEmployees = data => {
+export const createEmployee = data => {
   return async dispatch => {
-    fetch("http://dummy.restapiexample.com/api/v1/create", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(employee =>
-        dispatch({
-          type: NEW_EMPLOYEE,
-          payload: employee
-        })
-      );
+    try {
+      fetch("http://dummy.restapiexample.com/api/v1/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(res => res.json())
+        .then(employee =>
+          dispatch({
+            type: NEW_EMPLOYEE,
+            payload: employee
+          })
+        );
+    } catch (err) {
+      console.log("here");
+      console.log(err);
+    }
   };
 };

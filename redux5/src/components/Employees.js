@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { fetchEmployees } from "../actions/employeeActions";
+import EmployeeForm from "./EmployeeForm";
 
 class Employees extends Component {
   componentDidMount() {
@@ -14,20 +15,23 @@ class Employees extends Component {
         <tr key={employee.id}>
           <td>{employee.id}</td>
           <td>{employee.employee_name}</td>
+          <td>{employee.employee_age}</td>
         </tr>
       ))
     ) : (
       <tr>
-        <td colSpan="2">No Employees</td>
+        <td colSpan="3">No Employees</td>
       </tr>
     );
     return (
       <div>
+        <EmployeeForm />
         <table border="1">
           <thead>
             <tr>
               <th>id</th>
               <th>Name</th>
+              <th>Age</th>
             </tr>
           </thead>
           <tbody>{employeeItems}</tbody>
