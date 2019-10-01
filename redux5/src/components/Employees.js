@@ -14,8 +14,8 @@ class Employees extends Component {
       this.props.employees.map(employee => (
         <tr key={employee.id}>
           <td>{employee.id}</td>
-          <td>{employee.employee_name}</td>
-          <td>{employee.employee_age}</td>
+          <td>{employee.employee_name || employee.name}</td>
+          <td>{employee.employee_age || employee.age}</td>
         </tr>
       ))
     ) : (

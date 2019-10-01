@@ -12,7 +12,7 @@ export default function(state = initialState, action) {
     case NEW_EMPLOYEE:
       return {
         ...state,
-        item: action.payload
+        items: [action.payload, ...state.items]
       };
     default:
       return state;
