@@ -1,0 +1,3 @@
+export const FETCH_EMPLOYEES = "FETCH_EMPLOYEES";
+
+export const NEW_EMPLOYEE = "NEW_EMPLOYEE";
