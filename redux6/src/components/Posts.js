@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 
 import { fetchPosts } from "../actions/postActions"
 
+import PostForm from "./PostForm"
+
 class Posts extends Component {
     componentDidMount() {
         this.props.fetchPosts();
@@ -19,9 +21,12 @@ class Posts extends Component {
             )
         ) : (<p>No posts</p>);
 
-        return (<div>
-            {items}
-        </div>);
+        return (
+            <div>
+                <PostForm />
+                {items}
+            </div>
+        );
     }
 }
 
