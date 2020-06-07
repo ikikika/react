@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import TodoListItem from "./TodoListItem";
 import NewTodoForm from "./NewTodoForm";
 import { loadTodos, removeTodoRequest, markTodoAsComplete } from "./thunks";
+import { getTodos, getTodosLoading } from "./selectors";
 
 import "./TodoList.css";
 
@@ -36,8 +37,8 @@ const TodoList = ({
 };
 
 const mapStateToProps = (state) => ({
-  isLoading: state.isLoading,
-  todos: state.todos,
+  isLoading: getTodosLoading(state),
+  todos: getTodos(state),
 });
 const mapDispatchToProps = (dispatch) => ({
   startLoadingTodos: () => dispatch(loadTodos()),
