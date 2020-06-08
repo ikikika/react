@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 import TodoListItem from "./TodoListItem";
 import NewTodoForm from "./NewTodoForm";
 import { loadTodos, removeTodoRequest, markTodoAsComplete } from "./thunks";
@@ -11,6 +12,11 @@ import {
 } from "./selectors";
 
 import "./TodoList.css";
+
+const BigRedText = styled.div`
+  font-size: 48px;
+  color: #ff0000;
+`;
 
 const TodoList = ({
   incompleteTodos,
@@ -27,6 +33,7 @@ const TodoList = ({
   const loadingMessage = <div>Loading todos...</div>;
   const content = (
     <div className="list-wrapper">
+      <BigRedText>I'm a styled component</BigRedText>
       <NewTodoForm />
       <h3>Incomplete</h3>
       {incompleteTodos.map((todo) => (
