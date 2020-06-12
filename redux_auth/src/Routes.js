@@ -3,6 +3,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/User/Auth/Login";
 import Register from "./pages/User/Auth/Register";
+import Guard from "./Guard";
+import PrivateRoutes from "./PrivateRoutes";
 
 const Routes = () => {
   return (
@@ -15,6 +17,13 @@ const Routes = () => {
       <Route exact path="/home" component={Home} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/register" component={Register} />
+
+      <Guard
+        path="/user"
+        token="user-token"
+        routeRedirect="/login"
+        component={PrivateRoutes}
+      />
     </Switch>
   );
 };
