@@ -1,10 +1,27 @@
 import React from "react";
-import HomeView from "../views/Home/HomeView";
+import Button from "@material-ui/core/Button";
+import { useStyles } from "../styles";
 
-const Home = () => {
+const Home = (props) => {
+  const classes = useStyles();
+
+  const goToDashboardOne = () => {
+    props.history.push("/user");
+  };
+
   return (
-    <div>
-      <HomeView />
+    <div className={classes.homeRoot}>
+      <div className={classes.containerDiv}>
+        <Button
+          variant="contained"
+          onClick={goToDashboardOne}
+          size="large"
+          className={classes.extraBtnStyle}
+          color="primary"
+        >
+          User
+        </Button>
+      </div>
     </div>
   );
 };

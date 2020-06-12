@@ -14,7 +14,7 @@ export const errorMessage = (dataObject) => {
   }
 };
 
-export const displayErrorMEssages = (errorResponse, displayError) => {
+export const displayErrorMessages = (errorResponse, displayError) => {
   if (typeof errorResponse == "string") {
     displayError.innerHTML =
       "<div class='alert alert-danger add-padding'>" + errorResponse + "</div>";

@@ -12,7 +12,9 @@ const Routes = () => {
       <Route
         exact
         path="/"
-        render={(props) => <Redirect to={{ pathname: "/home" }} />}
+        render={(props) => (
+          <Redirect to={{ pathname: "/home" }} props={props} />
+        )}
       />
       <Route exact path="/home" component={Home} />
       <Route exact path="/login" component={Login} />
