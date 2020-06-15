@@ -15,7 +15,7 @@ import { displayErrorMessages } from "../../../helpers/displayError";
 
 const Register = () => {
   const [fields, handleFieldChange] = useFormFields({
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirm: "",
@@ -34,9 +34,9 @@ const Register = () => {
   const UserRegister = (e) => {
     e.preventDefault();
 
-    clearAuthErrDiv();
+    // clearAuthErrDiv();
 
-    console.log(fields);
+    // console.log(fields);
     const passwordMatch = checkPasswordMatch(fields.password, fields.confirm);
 
     if (passwordMatch == false) {
@@ -109,9 +109,9 @@ const Register = () => {
                 required
                 margin="normal"
                 variant="outlined"
-                label="name"
-                id="name"
-                value={fields.name}
+                label="username"
+                id="username"
+                value={fields.username}
                 onChange={handleFieldChange}
               />
             </div>
