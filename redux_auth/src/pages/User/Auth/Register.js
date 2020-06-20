@@ -174,7 +174,7 @@ const Register = () => {
                 <br />
 
                 <div className={classes.linkContainer}>
-                  <Link to="/user/login">Login Here</Link>
+                  <Link to="/login">Login Here</Link>
                 </div>
               </div>
 
