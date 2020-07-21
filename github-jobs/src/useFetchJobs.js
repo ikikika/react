@@ -1,11 +1,33 @@
 import { useReducer } from "react";
 
+const ACTIONS = {
+  MAKE_REQUEST: "make-request",
+  GET_DATA: "get-data",
+  ERROR: "error",
+};
+
 function reducer(state, action) {
   // reducer function gets called everytime we call dispatch
   // whatever we pass to dispatch is populated inside action variable
   // state is just whatever current state of application is
   // action.type equal hello
   // action.payload.x equal 3
+
+  switch (action.type) {
+    case ACTIONS.MAKE_REQUEST:
+      return { loading: true, jobs: [] };
+    case ACTIONS.GET_DATA:
+      return { ...state, loading: false, jobs: action.payload.jobs };
+    case ACTIONS.ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        jobs: [],
+      };
+    default:
+      return state;
+  }
 }
 
 export default function useFetchJobs(params, page) {
@@ -13,5 +35,5 @@ export default function useFetchJobs(params, page) {
 
   //   dispatch({ type: "hello", payload: { x: 3 } });
 
-  return { jobs: "", loading: "", error: "" };
+  return { jobs: [], loading: false, error: false };
 }
