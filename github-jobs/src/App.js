@@ -4,8 +4,16 @@ import { Container } from "react-bootstrap";
 
 function App() {
   const { jobs, loading, error } = useFetchJobs();
+  console.log(jobs);
+  return (
+    <Container>
+      {loading ? <h1>loading...</h1> : ""}
+      <br />
 
-  return <Container></Container>;
+      <br />
+      {/* <h1>{jobs.length}</h1> */}
+    </Container>
+  );
 }
 
 export default App;
