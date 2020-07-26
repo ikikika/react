@@ -27,7 +27,8 @@ function reducer(state, action) {
       return {
         ...state,
         loading: false,
-        jobs: action.payload.jobs,
+        // jobs: action.payload.jobs,
+        jobs: action.payload,
       };
     case ACTIONS.ERROR:
       return {
@@ -48,8 +49,10 @@ export default function useFetchJobs(params, page) {
 
   useEffect(() => {
     dispatch({ type: ACTIONS.MAKE_REQUEST });
+    const cancelToken = axios.CancelToken.source();
     axios
       .get(BASE_URL, {
+        cancelToken: cancelToken.token,
         params: {
           markdown: true,
           page: page,
@@ -57,17 +60,23 @@ export default function useFetchJobs(params, page) {
         },
       })
       .then((res) => {
+        console.log(res);
         dispatch({
           type: ACTIONS.GET_DATA,
           payload: res.data,
         });
       })
       .catch((e) => {
+        if (axios.isCancel(e)) return;
         dispatch({
           type: ACTIONS.ERROR,
           payload: { error: e },
         });
       });
+
+    return () => {
+      cancelToken.cancel();
+    };
   }, [params, page]);
 
   return state;
