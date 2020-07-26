@@ -8,7 +8,8 @@ const ACTIONS = {
 };
 
 const BASE_URL =
-  "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
+  "https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json";
+//   "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
 
 function reducer(state, action) {
   // reducer function gets called everytime we call dispatch
@@ -60,7 +61,6 @@ export default function useFetchJobs(params, page) {
         },
       })
       .then((res) => {
-        console.log(res);
         dispatch({
           type: ACTIONS.GET_DATA,
           payload: res.data,
