@@ -1,8 +1,0 @@
-nav.navbar, .navbar-default{
-    background-image:none;
-    background-color: #3399ff !important;
-}
-
-.navbar-brand, .navbar-default .navbar-nav>li>a {
-    color: #fff !important;
-}
