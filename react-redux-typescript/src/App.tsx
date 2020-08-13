@@ -4,7 +4,7 @@ import { NewNoteInput } from "./NewNopteInput";
 function App() {
   return (
     <>
-      <NewNoteInput />
+      <NewNoteInput addNote={alert} />
       <hr />
       <ul></ul>
     </>
