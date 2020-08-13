@@ -1,7 +1,14 @@
 import React from "react";
+import { NewNoteInput } from "./NewNopteInput";
 
 function App() {
-  return <div>react redux typescript</div>;
+  return (
+    <>
+      <NewNoteInput />
+      <hr />
+      <ul></ul>
+    </>
+  );
 }
 
 export default App;
