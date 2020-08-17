@@ -129,7 +129,7 @@ const Login = (props) => {
                 <br />
 
                 <div className={classes.linkContainer}>
-                  <Link to="/user/register">Register Here</Link>
+                  <Link to="/register">Register Here</Link>
                 </div>
               </div>
 
