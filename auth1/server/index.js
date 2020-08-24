@@ -6,6 +6,10 @@ const morgan = require("morgan");
 const app = express();
 
 // App set up
+// // logging framework
+app.use(morgan("combined"));
+// // middleware
+app.use(bodyParser.json({ type: "*/*" }));
 
 // Server set up
 const port = process.env.PORT || 3090;
