@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 // Define our model
 const userSchema = newSchema({
-  username: { type: String, unique: true, lowercase: true },
   email: { type: String, unique: true, lowercase: true },
   password: String,
 });
