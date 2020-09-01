@@ -9,10 +9,11 @@ const router = require("./router");
 const mongoose = require("mongoose");
 
 // DB setup
-mongoose.connect("mongodb://localhost:auth/auth", {
+mongoose.connect("mongodb://localhost:27017/auth1", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+mongoose.set("useCreateIndex", true);
 
 const connection = mongoose.connection;
 

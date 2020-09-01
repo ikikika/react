@@ -7,11 +7,29 @@ exports.signup = function (req, res, next) {
   const password = req.body.password;
 
   // See if a user with email or email exist
-  User.findOne({ email: email });
+  User.findOne({ email: email }, function (err, existingUser) {
+    if (err) {
+      return next(err);
+    }
 
-  // if user with same username or password exist, retur an error
+    // If a user with email does EXIST, return an error
+    if (existingUser) {
+      return res.status(422).send({ error: "Email is in use" });
+    }
 
-  // if user does not exist, create and save user record
+    // if user does not exist, create and save user record
+    const user = new User({
+      email: email,
+      password: password,
+    });
 
-  // respond to request indicating user was created
+    user.save(function (err) {
+      if (err) {
+        return next(err);
+      }
+    });
+
+    // respond to request indicating user was created
+    res.json({ success: true });
+  });
 };
