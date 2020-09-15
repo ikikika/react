@@ -1,11 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import { BrowserRouter, Route } from "react-router-dom";
+import App from "./components/App";
+import Welcome from "./components/Welcome";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App>
+        <Route path="/" exact component={Welcome} />
+      </App>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
