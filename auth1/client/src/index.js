@@ -1,19 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
+
 import App from "./components/App";
 import Welcome from "./components/Welcome";
 import Signup from "./components/Auth/Signup";
 import * as serviceWorker from "./serviceWorker";
+import reducers from "./reducers";
+
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App>
-        <Route path="/" exact component={Welcome} />
-        <Route path="/signup" exact component={Signup} />
-      </App>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App>
+          <Route path="/" exact component={Welcome} />
+          <Route path="/signup" exact component={Signup} />
+        </App>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
