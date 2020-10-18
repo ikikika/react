@@ -8,6 +8,8 @@ const router = require("./router");
 
 const mongoose = require("mongoose");
 
+const cors = require("cors");
+
 // DB setup
 mongoose.connect("mongodb://localhost:27017/auth1", {
   useNewUrlParser: true,
@@ -24,6 +26,7 @@ connection.on("connected", function () {
 // App set up
 // // logging framework
 app.use(morgan("combined"));
+app.use(cors());
 // // middleware
 app.use(bodyParser.json({ type: "*/*" }));
 router(app);
